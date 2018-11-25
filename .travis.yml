@@ -6,6 +6,11 @@ python:
 addons:
   postgresql: "9.6"
 
+branches:
+  except:
+    - doc
+    - documentation
+
 before_script:
 - pip install -r requirements.txt
 
