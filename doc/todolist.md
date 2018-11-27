@@ -8,7 +8,7 @@
     - [x] `settings.py`
     - [x] `gunicorn`
     - [x] `ENV_VARS`
-* [ ] [3][3]: Set-up Sentry
+* [x] [3][3]: Set-up Sentry
 * [ ] [4][4]: Set-up travis
 * [ ] [5][5]: Define template grid
 * [ ] [6][6]: Configure statics
