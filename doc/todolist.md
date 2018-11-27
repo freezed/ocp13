@@ -2,12 +2,12 @@
 
 ## Validated specification
 
-* [ ] [1][1]: Basic Django Hello-World
-* [ ] [2][2]: Set-up Heroku staging environnement
-    - [ ] `Procfile`
-    - [ ] `settings.py`
-    - [ ] `gunicorn`
-    - [ ] `ENV_VARS`
+* [x] [1][1]: Basic Django Hello-World
+* [x] [2][2]: Set-up Heroku staging environnement
+    - [x] `Procfile`
+    - [x] `settings.py`
+    - [x] `gunicorn`
+    - [x] `ENV_VARS`
 * [ ] [3][3]: Set-up Sentry
 * [ ] [4][4]: Set-up travis
 * [ ] [5][5]: Define template grid
