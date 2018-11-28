@@ -12,7 +12,7 @@ Après avoir réalisé, entre autre, [un jeu en 2D][p3], [un chat-bot][p5] et [u
 
 ## Contexte _utilisateur_
 
-[Valérie](https://refuge.la-cordee.net/users/3271) et [Serge][serge] sont travailleurs indépendants (les `utilisateurs` dans la suite du doc.). Nous nous rencontrons dans la [communauté de travail][cordee] que nous fréquentons à _Lyon_. Pour leurs activités respectives ils sont à la recherche d'un outil qui leur permettrait de gérer aisément leur _réseau de contacts_ : prospection, suivi, opportunités etc.
+[Valérie](https://refuge.la-cordee.net/users/3271) et [Serge][serge] sont travailleurs indépendants (les `utilisateurs` dans la suite du doc.). Nous nous [rencontrons][refuge] à _Lyon_ dans la [communauté de travail][cordee] que nous fréquentons. Pour leurs activités respectives ils sont à la recherche d'un outil qui leur permettrait de gérer aisément leur _réseau de contacts_ : prospection, suivi, opportunités etc.
 
 Bien qu'aillant chacun des activités (_très_) différentes, après une écoute de leurs problématiques respectives, un certain nombre de leurs besoins sont similaires et sont compatibles avec un outil commun. En plus il pourrait même convenir à d'autres indépendants de cette _communauté de travail_ ou d'une autre!
 
@@ -54,6 +54,7 @@ _(… à suivre…)_
 [p5]: https://github.com/freezed/ocp5#pydev-projet-5
 [pitch]: https://gitpitch.com/freezed/ocp13/wip-doc?p=doc
 [readme]: https://github.com/freezed/ocp13/blob/wip-doc/README.md#contexte-pédagogique
+[refuge]: https://refuge.la-cordee.net/messages/5733
 [serge]: https://refuge.la-cordee.net/users/2579
 [staging]: https://ocp13-1664.herokuapp.com/
 [wikici]: https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue "Lien vers la page «Intégration continue» sur wikipedia"
