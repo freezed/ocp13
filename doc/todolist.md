@@ -37,6 +37,8 @@
     - https://github.com/eventable/vobject
 * Import contacts via a CSV file
 * Add user/contact pages
+* Associate a todolist to a contact
+* Todolist entry have deadlines
 * List associated objects by date
 * Add note to contacts
 * Add deal to contacts
