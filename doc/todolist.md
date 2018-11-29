@@ -1,6 +1,6 @@
 # ToDoList
 
-## Validated specification
+## Validated specifications
 
 * [x] [1][1]: Basic Django Hello-World
 * [x] [2][2]: Set-up Heroku staging environnement
@@ -40,6 +40,14 @@
 * Associate a todolist to a contact
 * Todolist entry have deadlines
 * List associated objects by date
+* contacts views : 
+    - all my contacts (filtered on attributes)
+    - list of contacts with associated business
+    - list of actions in progress (not flagged "done")
+    - list of all ongoing actions
+    - list of all ongoing jobs :
+        * default: pending jobs
+        * other: all jobs, jobs with actions coming…
 * Add note to contacts
 * Add deal to contacts
 * Add tag
