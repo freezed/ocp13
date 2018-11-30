@@ -1,0 +1,50 @@
+@startuml
+
+title Functionnal domain\n <i>(draft)</i>\n
+
+/' = = = = = = = STYLE = = = = = = = '/
+' skinparam monochrome true
+skinparam linetype ortho
+hide empty methods
+hide <<assoc>> circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+}
+
+/' = = = = = = = MACRO = = = = = = = '/
+' !define rel(a,b,c,d,e) a c e
+
+!define rel(a,b,c,d,e) a "b" c "d" e
+!define rea(a,b,c,d) (a, b) c d
+
+/' = = = = = = = CLASSE = = = = = = = '/
+' !includeurl https://raw.githubusercontent.com/freezed/ocp13/master/src-puml/classes.iuml
+
+class user
+class creator
+class contact
+class tag
+class log
+class entry
+class member <<assoc>>
+class tag_entry
+class partner <<assoc>>
+
+
+/' = = = = = = = RELATION = = = = = = = '/
+rel(user,1,-,1,creator)
+rel(contact,*,-,1,creator)
+rel(contact,1,-,*,log)
+rel(contact,*,-,*,tag)
+rel(creator,1,-,*,log)
+rel(log,1,-,*,entry)
+rel(entry,*,-,*,tag_entry)
+
+
+
+/' = = = = = = = ASSOCIATION = = = = = = = '/
+' !includeurl https://raw.githubusercontent.com/freezed/ocp13/master/src-puml/associations.iuml
+rea(user,contact,..,partner)
+rea(entry,contact,..,member)
+
+@enduml
