@@ -2,6 +2,8 @@
 
 _**Note** : La version à jour de ce document est disponible [à cette adresse][readme]._
 
+[![Build Status](https://www.travis-ci.org/freezed/ocp13.svg?branch=master)](https://www.travis-ci.org/freezed/ocp13)
+
 ## Contexte _pédagogique_
 
 Après avoir réalisé, entre autre, [un jeu en 2D][p3], [un chat-bot][p5] et [un outil de recherche d'aliments de substitution][p11] explorant notamment l'écosystème [Python][wikipython], le [TDD][wikitdd] ou l'[Intégration continue][wikici], me voici enfin arrivé à la dernière étape du parcours _[développeur·se d'application Python][dapy]_ : développer un projet _libre_ avec une _portée sociale_.
