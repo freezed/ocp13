@@ -1,21 +1,28 @@
 @startuml
 
-title Functionnal domain
+title Description du domaine fonctionnel
 
 /' = = = = = = = STYLE = = = = = = = '/
 skinparam linetype ortho
-hide <<django>> circle
 hide empty methods
+hide <<assoc>> circle
+hide <<django>> circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+    BackgroundColor<<django>> lightgreen
+}
 
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a "b" c "d" e
 !define rea(a,b,c,d) (a, b) c d
+!define att(n,u,s) n : u
 
 /' = = = = = = = CLASSES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
 
-/' = = = = = = = NOTES = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/notes.iuml
+
+/' = = = = = = = ATTRIBUTES = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/attributes.iuml
 
 /' = = = = = = = LEGEND = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml

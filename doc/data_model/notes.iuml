@@ -1,0 +1,18 @@
+/' = = = = = = = NOTES = = = = = = = '/
+class archive
+note bottom: Entrée\narchivée
+
+class contact
+note top: Contact de\nl'utilisateur\n(champs\n«Vcards»)
+
+class entry
+note bottom: Entrée\nd'historique\ncontact
+
+class tag
+note top: tag des\ncontacts
+
+class tag_entry
+note top: Tag des\nentrées\nd'historique
+
+class user
+note bottom: Utilisateur\ndu service
