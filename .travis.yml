@@ -1,13 +1,19 @@
 language: python
 python:
 - '3.6'
+
 branches:
   only:
   - master
+
 before_script:
 - pip install -r requirements.txt
 script:
-- pytest
+- pytest --cov=organact --cov=core
+
+after_success:
+- coveralls
+
 deploy:
   provider: heroku
   app: ocp13-1664
