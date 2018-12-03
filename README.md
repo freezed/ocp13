@@ -3,7 +3,7 @@
 _**Note** : La version à jour de ce document est disponible [à cette adresse][readme]._
 
 [![Build Status](https://www.travis-ci.org/freezed/ocp13.svg?branch=master)](https://www.travis-ci.org/freezed/ocp13)
-[![Coverage Status](https://coveralls.io/repos/github/freezed/ocp13/badge.svg?branch=master)](https://coveralls.io/github/freezed/ocp13?branch=foobar)
+[![Coverage Status](https://coveralls.io/repos/github/freezed/ocp13/badge.svg?branch=master)](https://coveralls.io/github/freezed/ocp13?branch=master)
 
 ## Contexte _pédagogique_
 
