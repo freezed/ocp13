@@ -22,6 +22,17 @@ def test_home(templates):
 
 
 ################################################################################
+#   organact.views.about()
+################################################################################
+def test_about():
+    CLIENT = Client()
+    response = CLIENT.get('/about')
+
+    assert response.status_code == 200
+    assert "Hopla, Seppi bring a Wurschtsalat avec un amer!" == response.content.decode()
+
+
+################################################################################
 #   organact.views - error
 ################################################################################
 
