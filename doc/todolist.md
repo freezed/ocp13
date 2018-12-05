@@ -9,21 +9,23 @@
     - [x] `gunicorn`
     - [x] `ENV_VARS`
 * [x] [3][3]: Set-up Sentry
-* [ ] [4][4]: Set-up travis
-* [ ] [5][5]: Define template grid
-* [ ] [6][6]: Configure statics
+* [x] [4][4]: Set-up travis
+* [x] [13][13]: Add connection to a coverage service
+* [x] [8][8]: Define physical data model
 * [ ] [7][7]: Use knacss CSS framework
-    - [ ] 404/500 error
-    - [ ] about
+    - [ ] home
     - [ ] footer
     - [ ] header
-* [ ] [8][8]: Define physical data model
+    - [ ] about
+    - [ ] 404/500 error
+* [ ] [6][6]: Configure statics
 * [ ] [9][9]: Postgres config
 * [ ] [10][10]: create `app.models`
 * [ ] [11][11]: Add auth pages
     - [ ] sign-up
     - [ ] logout
     - [ ] login
+* [ ] [5][5]: Define template grid
 * [ ] [12][12]: Set-up production environnement
 
 ## Candidates specifications
@@ -65,3 +67,4 @@
 [10]: https://github.com/freezed/ocp13/issues/10
 [11]: https://github.com/freezed/ocp13/issues/11
 [12]: https://github.com/freezed/ocp13/issues/12
+[13]: https://github.com/freezed/ocp13/issues/13
