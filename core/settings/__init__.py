@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'organact.apps.OrganactConfig',
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(PROJ_DIR, 'static'),
 ]
 
 LANGUAGE_CODE = 'fr-fr'
