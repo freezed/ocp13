@@ -8,6 +8,11 @@
 
     <title>{% block title %}Hopla{% endblock %} [ ocp13 ]</title>
 
+    {% load static %}
+    <link href="{% static 'img/favico.png' %}" media='all' type="image/png" rel="shortcut icon">
+    <link href="{% static 'css/knacss.css' %}" media='all' type='text/css' rel='stylesheet'>
+    <link href="{% static 'css/styles.css' %}" media='all' type='text/css' rel='stylesheet'>
+
   </head>
 
   <body>

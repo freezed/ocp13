@@ -1,5 +1,6 @@
 from pytest import fixture
 
+from django.contrib.staticfiles import finders
 from django.test import Client
 
 @fixture
@@ -30,6 +31,17 @@ def test_about():
 
     assert response.status_code == 200
     assert "Hopla, Seppi bring a Wurschtsalat avec un amer!" == response.content.decode()
+
+
+################################################################################
+#   static.css.*
+################################################################################
+def test_style_css():
+    assert finders.find('favico.ico') != None
+    assert finders.find('img/favico.png') != None
+    assert finders.find('css/styles.css') != None
+    assert finders.find('css/knacss.css') != None
+    assert finders.find('css/foobar.css') == None
 
 
 ################################################################################
