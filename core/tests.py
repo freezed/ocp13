@@ -25,9 +25,21 @@ def test_home(templates):
 ################################################################################
 #   core.views.about()
 ################################################################################
-def test_about():
+def test_about(templates):
+    templates.insert(0, 'about.html')
     CLIENT = Client()
     response = CLIENT.get('/about')
+
+    assert response.status_code == 200
+    assert templates == [t.name for t in response.templates]
+
+
+################################################################################
+#   core.views.hopla()
+################################################################################
+def test_hopla():
+    CLIENT = Client()
+    response = CLIENT.get('/hopla')
 
     assert response.status_code == 200
     assert "Hopla, Seppi bring a Wurschtsalat avec un amer!" == response.content.decode()
