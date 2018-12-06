@@ -6,7 +6,12 @@
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>{% block title %}Hopla{% endblock %} [ ocp13 ]</title>
+    <title>{% block title %}?{% endblock %} - [ ocp13 ]</title>
+
+    {% load static %}
+    <link href="{% static 'img/favico.png' %}" media='all' type="image/png" rel="shortcut icon">
+    <link href="{% static 'css/knacss.css' %}" media='all' type='text/css' rel='stylesheet'>
+    <link href="{% static 'css/styles.css' %}" media='all' type='text/css' rel='stylesheet'>
 
   </head>
 

@@ -6,4 +6,7 @@ def home(request):
     return render(request, 'home.html')
 
 def about(request):
+    return render(request, 'about.html')
+
+def hopla(request):
     return HttpResponse("Hopla, Seppi bring a Wurschtsalat avec un amer!")

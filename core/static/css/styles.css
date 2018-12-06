@@ -1,0 +1,17 @@
+/* Votre Style */
+
+ul {
+  background: #fe4a49;
+}
+li, [class*="grid"] > * {
+  background: #ffca3a;
+}
+header, footer {
+  background: #8ac926;
+}
+main {
+  background: #f2f3ae;
+}
+aside {
+  background: #8ac926;
+}

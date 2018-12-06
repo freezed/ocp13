@@ -1,19 +1,17 @@
 """
-`settings.py` for staging environement
+`settings.py` for `heroku local web` command environement
 Django settings for ocp13 project.
 """
-import dj_database_url
-
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 from . import *
 
 DEBUG = False
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'HEROKU_LOCAL_3#-w$0tr9(e&o-'
 
 ALLOWED_HOSTS = [
-    'ocp13-1664.herokuapp.com',
+    '0.0.0.0',
 ]
 
 MIDDLEWARE = [
@@ -30,12 +28,8 @@ MIDDLEWARE = [
 sentry_sdk.init(
     dsn="https://9f531f2ee4354cd09dcbd64066283928@sentry.io/1331802",
     integrations=[DjangoIntegration()],
-    environment="staging",
+    environment="heroku-local",
 )
-
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-}
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -6,7 +6,9 @@ Splitted & stripped from scratch
 
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJ_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 SECRET_KEY = '3#-w$0tr9(e&o-'
 DEBUG = True
 ALLOWED_HOSTS = [
@@ -14,7 +16,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-# Application definition
 ROOT_URLCONF = 'core.urls'
 WSGI_APPLICATION = 'core.wsgi.application'
 INSTALLED_APPS = [
@@ -22,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'organact.apps.OrganactConfig',
+    'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -38,7 +39,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(PROJ_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -51,8 +52,6 @@ TEMPLATES = [
     },
 ]
 
-
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -68,8 +67,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbocp13',
+        'PORT': 5432,
+    }
+}
 
-# Internationalization
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(PROJ_DIR, 'static'),
+]
+
 LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'Europe/Paris'
 USE_I18N = True

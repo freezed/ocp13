@@ -12,33 +12,45 @@
 * [x] [4][4]: Set-up travis
 * [x] [13][13]: Add connection to a coverage service
 * [x] [8][8]: Define physical data model
-* [ ] [7][7]: Use knacss CSS framework
-    - [ ] home
-    - [ ] footer
-    - [ ] header
-    - [ ] about
-    - [ ] 404/500 error
-* [ ] [6][6]: Configure statics
-* [ ] [9][9]: Postgres config
-* [ ] [10][10]: create `app.models`
+* [x] [6][6]: Configure statics
+    - [x] `static/favico.ico` (requested by browsers)
+    - [x] devel env
+    - [x] heroku local
+    - [x] heroku
+* [x] [7][7]: Use knacss HTML/CSS template
+    - [x] `home.html`
+    - [x] `about.html`
+    - [x] `404.html` & `500.html`
+    - [x] footer
+    - [x] header
+* [x] [9][9]: Postgres config
 * [ ] [11][11]: Add auth pages
-    - [ ] sign-up
+    - [ ] signup
     - [ ] logout
     - [ ] login
+* [ ] [10][10]: create `app.models`
 * [ ] [5][5]: Define template grid
+* [ ][14][14] User account page
+    - [ ] update personnal info
+    - [ ] contact list access
+    - [ ] next deadline
+    - [ ] last entry
+* [ ][15][15] Add CRUD contacts page
+    - [ ] Create
+    - [ ] Read
+    - [ ] Update
+    - [ ] Delete
+* [ ][16][16] Import contacts via
+    - [ ] a CSV file
+    - [ ] Vcard file
+    - [ ] WebDAV server
+    - https://github.com/l0b0/vcard
+    - https://github.com/python-caldav/caldav
+    - https://github.com/eventable/vobject
 * [ ] [12][12]: Set-up production environnement
 
 ## Candidates specifications
 
-* Add account page
-* Add CRUD contacts page
-    - Import contacts via Vcard file
-* https://github.com/l0b0/vcard
-    - Import contacts via a WebDAV server
-    - https://github.com/python-caldav/caldav
-    - https://github.com/eventable/vobject
-* Import contacts via a CSV file
-* Add user/contact pages
 * Associate a todolist to a contact
 * Todolist entry have deadlines
 * List associated objects by date

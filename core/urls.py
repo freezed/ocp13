@@ -1,8 +1,9 @@
 from django.urls import path
-from organact import views as organact_views
+from . import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', organact_views.home, name='home'),
-    path('about', organact_views.about, name='about'),
+    path('', views.home, name='home'),
+    path('about', views.about, name='about'),
+    path('hopla', views.hopla, name='hopla'),
 ]
