@@ -1,44 +1,34 @@
-from pytest import fixture
+from pytest import fixture, mark
 
 from django.contrib.staticfiles import finders
 from django.test import Client
 
 @fixture
-def templates():
-    """ set basic template """
-    templates = ['base.html']
+def CLIENT():
+    """ Provide a Django test client """
+    return Client()
 
-    return templates
 
 ################################################################################
-#   core.views.home()
+#   core.views
 ################################################################################
-def test_home(templates):
-    templates.insert(0, 'home.html')
-    CLIENT = Client()
-    response = CLIENT.get('/')
+@mark.parametrize(
+    "tmplt, url", [
+        (['home.html', 'base.html'], '/'),
+        (['about.html', 'base.html'], '/about'),
+    ]
+)
+def test_home(CLIENT, tmplt, url):
+    response = CLIENT.get(url)
 
     assert response.status_code == 200
-    assert templates == [t.name for t in response.templates]
-
-
-################################################################################
-#   core.views.about()
-################################################################################
-def test_about(templates):
-    templates.insert(0, 'about.html')
-    CLIENT = Client()
-    response = CLIENT.get('/about')
-
-    assert response.status_code == 200
-    assert templates == [t.name for t in response.templates]
+    assert tmplt == [t.name for t in response.templates]
 
 
 ################################################################################
 #   core.views.hopla()
 ################################################################################
-def test_hopla():
-    CLIENT = Client()
+def test_hopla(CLIENT):
     response = CLIENT.get('/hopla')
 
     assert response.status_code == 200
@@ -48,20 +38,22 @@ def test_hopla():
 ################################################################################
 #   static.css.*
 ################################################################################
-def test_style_css():
-    assert finders.find('favico.ico') != None
-    assert finders.find('img/favico.png') != None
-    assert finders.find('css/styles.css') != None
-    assert finders.find('css/knacss.css') != None
+@mark.parametrize("url", [
+    ('favico.ico'),
+    ('img/favico.png'),
+    ('css/styles.css'),
+    ('css/knacss.css'),
+])
+def test_valid_static_files(url):
+    assert finders.find(url) != None
+
+def test_unvalid_static_files():
     assert finders.find('css/foobar.css') == None
-
-
 ################################################################################
 #   core.views - error
 ################################################################################
 
-def test_404():
-    CLIENT = Client()
+def test_404(CLIENT):
     response = CLIENT.get('/foo')
 
     assert response.status_code == 404
