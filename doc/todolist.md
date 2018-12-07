@@ -23,12 +23,12 @@
     - [x] `404.html` & `500.html`
     - [x] footer
     - [x] header
-* [ ] [9][9]: Postgres config
-* [ ] [10][10]: create `app.models`
+* [x] [9][9]: Postgres config
 * [ ] [11][11]: Add auth pages
-    - [ ] sign-up
+    - [ ] signup
     - [ ] logout
     - [ ] login
+* [ ] [10][10]: create `app.models`
 * [ ] [5][5]: Define template grid
 * [ ][14][14] User account page
     - [ ] update personnal info
