@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Hopla{% endblock %}
+
+{% block headercontent %}
+      <h1>ocp13</h1>
+{% endblock headercontent %}
+
+{% block navcontent %}{% endblock navcontent %}
+
+{% block maincontent %}
+      <h3>Créer un compte</h3>
+      <form action="{% url 'a14n-signup' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+      </form>
+
+{% endblock maincontent %}

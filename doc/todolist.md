@@ -24,8 +24,8 @@
     - [x] footer
     - [x] header
 * [x] [9][9]: Postgres config
-* [ ] [11][11]: Add auth pages
-    - [ ] signup
+* [ ] [11][11]: Add auth(entification) pages
+    - [x] sign-up
     - [ ] logout
     - [ ] login
 * [ ] [10][10]: create `app.models`
