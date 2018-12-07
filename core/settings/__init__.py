@@ -68,6 +68,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbocp13',
+        'PORT': 5432,
+    }
+}
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJ_DIR, 'static'),

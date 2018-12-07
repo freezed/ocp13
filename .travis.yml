@@ -2,12 +2,16 @@ language: python
 python:
 - '3.6'
 
+addons:
+  postgresql: "10.6"
+
 branches:
   only:
   - master
 
 before_script:
 - pip install -r requirements.txt
+
 script:
 - pytest --cov=organact --cov=core
 
