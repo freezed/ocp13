@@ -9,11 +9,11 @@
 {% block navcontent %}{% endblock navcontent %}
 
 {% block maincontent %}
-      <h3>Créer un compte</h3>
-      <form action="{% url 'signup' %}" method="post">
+      <h3>Se connecter</h3>
+      <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Créer un compte">
+        <input type="submit" value="Se connecter">
       </form>
 
 {% endblock maincontent %}
