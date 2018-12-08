@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}logout{% endblock %}
+
+{% spaceless %}
+
+    {% block content %}
+      <p>Déconnecté!</p>
+      <a href="{% url 'login'%}">Me reconnecter</a>
+      <a href="{% url 'signup'%}">Créer un compte</a>
+    {% endblock %}
+
+{% endspaceless %}
