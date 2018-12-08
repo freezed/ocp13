@@ -1,6 +1,7 @@
 from pytest import fixture, mark
 
 from django.contrib.auth.models import User
+from django.contrib import auth
 from django.test import Client
 from django.urls import reverse
 
@@ -107,3 +108,22 @@ def test_signup_valid(client_anonymous):
     assert 'alice' == User.objects.get(id=1).username
     assert ('/', 302) == response.redirect_chain[0]
     assert ['home.html', 'base.html'] == [t.name for t in response.templates]
+
+
+### ############################################################################
+###     TESTING pages function : login()
+### ############################################################################
+@mark.django_db
+def test_login_valid(client_anonymous):
+    USER = {'username': 'bob','password': 'bobbobbob'}
+    User.objects.create_user(**USER)
+
+    response = client_anonymous.post(reverse('login'), USER, follow=True)
+    user = auth.get_user(response.wsgi_request)
+
+    assert user.is_authenticated
+    assert user.username == USER['username']
+    assert ['404.html', 'base.html'] == [t.name for t in response.templates]
+
+# def test_login_unvalid():    [TODO]
+    # pass
