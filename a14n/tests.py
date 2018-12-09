@@ -125,5 +125,21 @@ def test_login_valid(client_anonymous):
     assert user.username == USER['username']
     assert ['404.html', 'base.html'] == [t.name for t in response.templates]
 
-# def test_login_unvalid():    [TODO]
-    # pass
+
+@mark.parametrize("url, templates", [
+    ('login',t_login),
+])
+@mark.django_db
+def test_login_unvalid(client_anonymous, url, templates):
+    USER = {'username': 'bob','password': 'bobbobbob'}
+    User.objects.create_user(**USER)
+
+    response = client_anonymous.post(
+        reverse(url),
+        {'username': 'foo','password': 'bar'},
+        follow=True,
+    )
+    user = auth.get_user(response.wsgi_request)
+
+    assert user.is_anonymous
+    assert [t.name for t in response.templates] == templates
