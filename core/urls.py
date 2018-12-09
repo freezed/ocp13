@@ -9,4 +9,5 @@ urlpatterns = [
     path('about', core_views.about, name='about'),
     path('hopla', core_views.hopla, name='hopla'),
     path('my/', include('a14n.urls')),
+    path('user/', include('user.urls')),
 ]
