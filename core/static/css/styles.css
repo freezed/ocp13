@@ -1,17 +1,29 @@
 /* Votre Style */
 
-ul {
+h1, [class*="grid"] > *  {
   background: #fe4a49;
 }
-li, [class*="grid"] > * {
-  background: #ffca3a;
-}
-header, footer {
-  background: #8ac926;
-}
-main {
+
+li, .helptext  {
   background: #f2f3ae;
 }
-aside {
+
+header, aside, footer {
   background: #8ac926;
+}
+
+main, ul {
+  background: #ffca3a;
+}
+
+.helptext {
+  display: block;
+  font-style: italic;
+  font-variant: small-caps;
+}
+
+form ul {
+  list-style-type: none;
+  font-style: italic;
+  font-variant: small-caps;
 }

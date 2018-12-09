@@ -1,0 +1,8 @@
+      <h3>{{ label }}</h3>
+      <fieldset>
+        <form action="{% url name %}?next={{ next }}" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="{{ label }}">
+        </form>
+      </fieldset>

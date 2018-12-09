@@ -14,8 +14,8 @@ def CLIENT():
 ################################################################################
 @mark.parametrize(
     "tmplt, url", [
-        (['home.html', 'base.html'], '/'),
-        (['about.html', 'base.html'], '/about'),
+        (['home.html', 'base.html', 'a14n/anonymous.html'], '/'),
+        (['about.html', 'base.html', 'a14n/anonymous.html'], '/about'),
     ]
 )
 def test_home(CLIENT, tmplt, url):

@@ -1,19 +1,7 @@
 {% extends 'base.html' %}
 
-{% block title %}Hopla{% endblock %}
-
-{% block headercontent %}
-      <h1>ocp13</h1>
-{% endblock headercontent %}
-
-{% block navcontent %}{% endblock navcontent %}
-
 {% block maincontent %}
-      <h3>Se connecter</h3>
-      <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Se connecter">
-      </form>
+
+{% include 'a14n/form.html' with label='Se connecter' name='login' %}
 
 {% endblock maincontent %}

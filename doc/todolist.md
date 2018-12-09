@@ -24,23 +24,23 @@
     - [x] footer
     - [x] header
 * [x] [9][9]: Postgres config
-* [ ] [11][11]: Add auth(entification) pages
-    - [x] sign-up
-    - [ ] logout
-    - [ ] login
-* [ ] [10][10]: create `app.models`
-* [ ] [5][5]: Define template grid
-* [ ][14][14] User account page
+* [x] [11][11]: Add authentification (a14n) pages
+    - [x] signup
+    - [x] logout
+    - [x] login
+* [ ] [14][14] User account page
     - [ ] update personnal info
     - [ ] contact list access
     - [ ] next deadline
     - [ ] last entry
-* [ ][15][15] Add CRUD contacts page
+* [ ] [10][10]: create `app.models`
+* [ ] [15][15] Add CRUD contacts page
     - [ ] Create
     - [ ] Read
     - [ ] Update
     - [ ] Delete
-* [ ][16][16] Import contacts via
+* [ ] [5][5]: Define template grid
+* [ ] [16][16] Import contacts via
     - [ ] a CSV file
     - [ ] Vcard file
     - [ ] WebDAV server
@@ -80,3 +80,6 @@
 [11]: https://github.com/freezed/ocp13/issues/11
 [12]: https://github.com/freezed/ocp13/issues/12
 [13]: https://github.com/freezed/ocp13/issues/13
+[14]: https://github.com/freezed/ocp13/issues/14
+[15]: https://github.com/freezed/ocp13/issues/15
+[16]: https://github.com/freezed/ocp13/issues/16

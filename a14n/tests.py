@@ -10,6 +10,8 @@ from django.urls import reverse
 t_signup = [
     'registration/signup.html',
     'base.html',
+    'a14n/anonymous.html',
+    'a14n/form.html',
     'django/forms/widgets/text.html',
     'django/forms/widgets/input.html',
     'django/forms/widgets/attrs.html',
@@ -24,6 +26,8 @@ t_signup = [
 t_login = [
     'registration/login.html',
     'base.html',
+    'a14n/anonymous.html',
+    'a14n/form.html',
     'django/forms/widgets/text.html',
     'django/forms/widgets/input.html',
     'django/forms/widgets/attrs.html',
@@ -34,7 +38,8 @@ t_login = [
 
 t_logout = [
     'registration/logged_out.html',
-    'base.html'
+    'base.html',
+    'a14n/anonymous.html',
 ]
 
 

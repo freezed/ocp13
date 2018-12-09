@@ -6,8 +6,9 @@
 
     {% block content %}
       <p>Déconnecté!</p>
-      <a href="{% url 'login'%}">Me reconnecter</a>
-      <a href="{% url 'signup'%}">Créer un compte</a>
+      <ul>
+        {% include 'a14n/anonymous.html' %}
+      </ul>
     {% endblock %}
 
 {% endspaceless %}
