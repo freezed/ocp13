@@ -28,7 +28,9 @@
     - [x] signup
     - [x] logout
     - [x] login
-* [ ] [14][14] User account page
+* [ ] [14][14] "Add user account
+    - [x] add user index page
+    - [x] show personnal info "
     - [ ] update personnal info
     - [ ] contact list access
     - [ ] next deadline
