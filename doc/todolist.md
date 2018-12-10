@@ -36,6 +36,7 @@
     - [ ] next deadline
     - [ ] last entry
 * [ ] [10][10]: Add `lead` app (contact)
+    - [x] 1st test, view & template
     - [ ] `models.py`
     - [ ] Create
     - [ ] Read

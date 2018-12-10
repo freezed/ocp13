@@ -15,7 +15,7 @@ services:
 env: DJANGO_SETTINGS_MODULE="core.settings.travis"
 
 script:
-- pytest --cov=a14n --cov=core --cov=user
+- pytest --cov=a14n --cov=core --cov=user --cov=lead
 
 after_success:
 - coveralls

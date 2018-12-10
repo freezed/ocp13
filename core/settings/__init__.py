@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'a14n.apps.A14nConfig',
     'user.apps.UserConfig',
+    'lead.apps.LeadConfig',
 ]
 
 MIDDLEWARE = [
