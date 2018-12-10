@@ -24,24 +24,23 @@
     - [x] footer
     - [x] header
 * [x] [9][9]: Postgres config
-* [x] [11][11]: Add authentification (a14n) pages
+* [x] [11][11]: Add `a14n` app (authentification)
     - [x] signup
     - [x] logout
     - [x] login
-* [ ] [14][14] "Add user account
-    - [x] add user index page
-    - [x] show personnal info "
+* [ ] [14][14] Add `user` app (account)
+    - [x] index page
+    - [x] show personnal info
     - [ ] update personnal info
-    - [ ] contact list access
+    - [ ] `lead` list access
     - [ ] next deadline
     - [ ] last entry
-* [ ] [10][10]: create `app.models`
-* [ ] [15][15] Add CRUD contacts page
+* [ ] [10][10]: Add `lead` app (contact)
+    - [ ] `models.py`
     - [ ] Create
     - [ ] Read
     - [ ] Update
     - [ ] Delete
-* [ ] [5][5]: Define template grid
 * [ ] [16][16] Import contacts via
     - [ ] a CSV file
     - [ ] Vcard file
@@ -49,7 +48,9 @@
     - https://github.com/l0b0/vcard
     - https://github.com/python-caldav/caldav
     - https://github.com/eventable/vobject
+* [ ] [5][5]: Define template grid
 * [ ] [12][12]: Set-up production environnement
+* [ ] [15][15] merged with #10
 
 ## Candidates specifications
 
