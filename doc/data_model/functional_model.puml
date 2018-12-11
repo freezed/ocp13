@@ -3,15 +3,7 @@
 title Domaine fonctionnel
 
 /' = = = = = = = STYLE = = = = = = = '/
-skinparam linetype ortho
-left to right direction
-hide empty methods
-hide <<assoc>> circle
-hide <<auth>> circle
-skinparam class {
-    BackgroundColor<<assoc>> lightblue
-    BackgroundColor<<auth>> lightgreen
-}
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/style.iuml
 
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a "b" c "d" e
@@ -23,7 +15,6 @@ skinparam class {
 
 /' = = = = = = = CLASSES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
-rel(tag,*,-,*,tag)
 
 /' = = = = = = = ATTRIBUTES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/attributes.iuml

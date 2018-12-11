@@ -3,21 +3,20 @@
 title Domaine fonctionnel\nsimplifié
 
 /' = = = = = = = STYLE = = = = = = = '/
-hide <<auth>> circle
 hide empty methods
 skinparam class {
     BackgroundColor<<auth>> lightgreen
 }
 
 /' = = = = = = = MACRO = = = = = = = '/
-!define rel(a,b,c,d,e) a "b" c "d" e
+!define rel(a,b,c,d,e) a  c  e
 !define rea(a,b,c,d) (a, b) c d
 
 /' = = = = = = = CLASSES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
 
-rel(tag,*,-,*,tag)
 rel(contact,*,-,*,tag)
+rel(tag,*,--,*,entry)
 
 /' = = = = = = = LEGEND = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml
