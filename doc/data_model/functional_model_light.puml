@@ -1,6 +1,6 @@
 @startuml
 
-title Functionnal domain
+title Domaine fonctionnel\nsimplifié
 
 /' = = = = = = = STYLE = = = = = = = '/
 hide <<auth>> circle
@@ -15,6 +15,9 @@ skinparam class {
 
 /' = = = = = = = CLASSES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
+
+rel(tag,*,-,*,tag)
+rel(contact,*,-,*,tag)
 
 /' = = = = = = = LEGEND = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml

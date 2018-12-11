@@ -1,5 +1,17 @@
 /' = = = = = = = ASSOCIATION = = = = = = = '/
-class contact_tag <<assoc>>
-class entry_tag <<assoc>>
-rea(contact,tag,..,contact_tag)
-rea(tag,entry,..,entry_tag)
+package "lead" {
+    class contact <<lead>>
+    class tag <<lead>>
+    class contact_tag <<assoc>>
+    rea(tag,contact,.,contact_tag)
+}
+
+package "django.contrib.auth" {
+    class user <<auth>>
+}
+
+package "hist" {
+    class entry <<hist>>
+    class entry_tag <<assoc>>
+    rea(tag,entry,.,entry_tag)
+}

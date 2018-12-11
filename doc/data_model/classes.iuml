@@ -1,14 +1,12 @@
 /' = = = = = = = CLASSES = = = = = = = '/
-class contact
-class entry
-class tag
+class contact <<lead>>
+class entry <<hist>>
+class tag <<lead>>
 class user <<auth>>
 
 
 /' = = = = = = = RELATIONS = = = = = = = '/
 rel(contact,1,--,*,entry)
-rel(contact,*,-,*,tag)
-rel(tag,*,--,*,entry)
-rel(tag,*,-,*,tag)
 rel(contact,*,--,1,user)
 rel(user,*,-,*,entry)
+rel(tag,*,-,*,tag)

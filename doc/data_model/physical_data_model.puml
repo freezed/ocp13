@@ -1,9 +1,10 @@
 @startuml
 
-title Modèle Physique de données
+title Modèle physique de données
 
 /' = = = = = = = STYLE = = = = = = = '/
-'skinparam linetype ortho
+skinparam linetype ortho
+left to right direction
 hide empty methods
 hide <<assoc>> circle
 hide <<auth>> circle
@@ -19,8 +20,8 @@ skinparam class {
 !define fnk(n,r,t="INT NOT NULL UNSIGNED") <font color="blue">FK:<b>n</b> <size:09>[t]</size></font>
 !define att(n,u,s) {field} <b>n</b> [s]
 
-/' = = = = = = = CLASSES = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
+/' = = = = = = = ASSOCIATIONS = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/associations.iuml
 
 /' = = = = = = = KEYS = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/keys.iuml
@@ -28,8 +29,8 @@ skinparam class {
 /' = = = = = = = ATTRIBUTES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/attributes.iuml
 
-/' = = = = = = = ASSOCIATIONS = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/associations.iuml
+/' = = = = = = = CLASSES = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
 
 /' = = = = = = = LEGEND = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml

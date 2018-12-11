@@ -1,9 +1,10 @@
 @startuml
 
-title Description du domaine fonctionnel
+title Domaine fonctionnel
 
 /' = = = = = = = STYLE = = = = = = = '/
-'skinparam linetype ortho
+skinparam linetype ortho
+left to right direction
 hide empty methods
 hide <<assoc>> circle
 hide <<auth>> circle
@@ -17,14 +18,15 @@ skinparam class {
 !define rea(a,b,c,d) (a, b) c d
 !define att(n,u,s) n : u
 
+/' = = = = = = = ASSOCIATIONS = = = = = = = '/
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/associations.iuml
+
 /' = = = = = = = CLASSES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
+rel(tag,*,-,*,tag)
 
 /' = = = = = = = ATTRIBUTES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/attributes.iuml
-
-/' = = = = = = = ASSOCIATION = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/associations.iuml
 
 /' = = = = = = = LEGEND = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml
