@@ -3,15 +3,7 @@
 title Modèle physique de données
 
 /' = = = = = = = STYLE = = = = = = = '/
-skinparam linetype ortho
-left to right direction
-hide empty methods
-hide <<assoc>> circle
-hide <<auth>> circle
-skinparam class {
-    BackgroundColor<<assoc>> lightblue
-    BackgroundColor<<auth>> lightgreen
-}
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/style.iuml
 
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a c e
@@ -21,18 +13,18 @@ skinparam class {
 !define att(n,u,s) {field} <b>n</b> [s]
 
 /' = = = = = = = ASSOCIATIONS = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/associations.iuml
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/associations.iuml
 
 /' = = = = = = = KEYS = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/keys.iuml
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/keys.iuml
 
 /' = = = = = = = ATTRIBUTES = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/attributes.iuml
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/attributes.iuml
 
 /' = = = = = = = CLASSES = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/classes.iuml
 
 /' = = = = = = = LEGEND = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml
+!includeurl https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/legend.iuml
 
 @enduml

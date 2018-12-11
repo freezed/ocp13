@@ -1,0 +1,8 @@
+/' = = = = = = = STYLE = = = = = = = '/
+skinparam linetype ortho
+left to right direction
+hide empty methods
+hide <<assoc>> circle
+skinparam class {
+    BackgroundColor<<assoc>> lightblue
+}
