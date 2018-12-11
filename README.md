@@ -4,6 +4,8 @@ _**Note** : La version à jour de ce document est disponible [à cette adresse][
 
 [![Build Status](https://www.travis-ci.org/freezed/ocp13.svg?branch=master)](https://www.travis-ci.org/freezed/ocp13)
 [![Coverage Status](https://coveralls.io/repos/github/freezed/ocp13/badge.svg?branch=master)](https://coveralls.io/github/freezed/ocp13?branch=master)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/freezed/ocp13.svg)](http://isitmaintained.com/project/freezed/ocp13 "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/freezed/ocp13.svg)](http://isitmaintained.com/project/freezed/ocp13 "Percentage of issues still open")
 
 ## Contexte _pédagogique_
 
@@ -34,6 +36,11 @@ Bien qu'aillant chacun des activités (_très_) différentes, après une écoute
 
 _(… à suivre…)_
 
+### Modélisation de données
+
+![Domaine fonctionnel simplifié][lfd]
+
+
 ## Livrables attendus
 
 * Une [note d’intention][readme] expliquant les objectifs du projet.
@@ -48,18 +55,13 @@ _(… à suivre…)_
 [cordee]: https://www.la-cordee.net/
 [dapy]: https://openclassrooms.com/fr/paths/68-developpeur-dapplication-python "Maîtrisez Python, le langage des startups et des scientifiques, pour réaliser vos propres applications web"
 [doc]: https://github.com/freezed/ocp13/blob/wip-doc/doc/documentation.md
-[imgproduction]: https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/img/21-build-flow-production.jpg
-[imgstaging]: https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/img/22-build-flow-staging.jpg
-[issues]: https://github.com/freezed/ocp13/issues
 [kanban]: https://github.com/freezed/ocp13/projects/1
 [p11]: https://github.com/freezed/ocp8/blob/v0.3/README.md#contexte
 [p3]: https://github.com/freezed/ocp3/#pydev-projet-3
 [p5]: https://github.com/freezed/ocp5#pydev-projet-5
-[pitch]: https://gitpitch.com/freezed/ocp13/wip-doc?p=doc
-[readme]: https://github.com/freezed/ocp13/blob/wip-doc/README.md#contexte-pédagogique
+[readme]: https://github.com/freezed/ocp13/blob/master/README.md#contexte-pédagogique
 [refuge]: https://refuge.la-cordee.net/messages/5733
 [serge]: https://refuge.la-cordee.net/users/2579
-[staging]: https://ocp13-1664.herokuapp.com/
 [wikici]: https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue "Lien vers la page «Intégration continue» sur wikipedia"
 [wikicsv]: https://fr.wikipedia.org/wiki/Comma-separated_values "Lien vers la page «Comma-separated_values» sur Wikipedia"
 [wikidav]: https://fr.wikipedia.org/wiki/CardDAV "Lien vers la page «CardDAV» sur Wikipedia"
@@ -69,5 +71,6 @@ _(… à suivre…)_
 [wikitdd]: https://fr.wikipedia.org/wiki/Test_driven_development "Lien vers la page «Test driven development» sur wikipedia"
 [wikivcf]: https://fr.wikipedia.org/wiki/VCard "Lien vers la page «VCard» sur Wikipedia"
 [wikixtrem]: https://fr.wikipedia.org/wiki/Extreme_programming "Lien vers la page «Extreme programming» sur Wikipedia"
+[lfd]: https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/functional_model_light.png
 
 [wiki]: https://fr.wikipedia.org/wiki/ "Lien vers la page «» sur Wikipedia"
