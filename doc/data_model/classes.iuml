@@ -1,19 +1,14 @@
 /' = = = = = = = CLASSES = = = = = = = '/
-class archive
 class contact
 class entry
 class tag
-class tag_entry
-class user <<django>>
+class user <<auth>>
 
 
 /' = = = = = = = RELATIONS = = = = = = = '/
 rel(contact,1,--,*,entry)
-rel(contact,1,--,*,archive)
 rel(contact,*,-,*,tag)
-rel(tag_entry,*,--,*,entry)
-rel(tag_entry,*,-,*,tag_entry)
+rel(tag,*,--,*,entry)
 rel(tag,*,-,*,tag)
 rel(contact,*,--,1,user)
-rel(entry,*,-,1,user)
-rel(user,1,-,*,archive)
+rel(user,*,-,*,entry)

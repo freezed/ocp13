@@ -1,0 +1,5 @@
+/' = = = = = = = ASSOCIATION = = = = = = = '/
+class contact_tag <<assoc>>
+class entry_tag <<assoc>>
+rea(contact,tag,..,contact_tag)
+rea(tag,entry,..,entry_tag)
