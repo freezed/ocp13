@@ -1,46 +1,48 @@
 /' = = = = = = = ATTRIBUTES = = = = = = = '/
-class user{
-    att(1st_name,String,VARCHAR(30) NOT NULL)
-    att(name,String,VARCHAR(30) NOT NULL)
-    att(email,String,VARCHAR(254) NOT NULL)
-    att(password,String,VARCHAR(128) NOT NULL)
+class user {
+    att(date_joined,Date,DATETIME NOT NULL)
+    att(email,String,VARCHAR())
+    att(first_name,String,VARCHAR())
+    att(is_active,Bool,BOOLEAN NOT NULL)
+    att(is_staff,Bool,BOOLEAN NOT NULL)
+    att(is_superuser,Bool,BOOLEAN NOT NULL)
+    att(last_login,Date,DATETIME NULL)
+    att(last_name,String,VARCHAR())
+    att(password,String,VARCHAR() NOT NULL)
     att(username,String,VARCHAR(150) NOT NULL)
-    `django.auth.models.User`
 }
 
-class contact{
-    att(name,String,VARCHAR(30) NOT NULL)
-    att(1st_name,String,VARCHAR(30) NOT NULL)
-    att(birthday,Date,DATETIME NOT NULL)
-    att(creation,Date,DATETIME NOT NULL)
-    att(edition,Date,DATETIME NOT NULL)
-    att(mail1,String,VARCHAR(40) NULL)
-    att(mail2,String,VARCHAR(40) NULL)
-    att(phone1,String,VARCHAR(10) NOT NULL)
-    att(phone2,String,VARCHAR(10) NOT NULL)
-    … : uses Vcards fields
+class contact {
+    att(address_city,String,VARCHAR())
+    att(address_country,String,VARCHAR())
+    att(address_label,String,VARCHAR())
+    att(address_line_1,String,VARCHAR())
+    att(address_line_2,String,VARCHAR())
+    att(address_zip,String,VARCHAR())
+    att(birthday,Date,DATETIME)
+    att(date_birthday,Date,DATETIME)
+    att(date_edit,Date,DATETIME)
+    att(date_joined,Date,DATETIME)
+    att(edition,Date,DATETIME)
+    att(email,String,VARCHAR())
+    att(first_name,String,VARCHAR())
+    att(last_name,String,VARCHAR())
+    att(note,String,TEXT)
+    att(organization,String,VARCHAR())
+    att(phone,String,VARCHAR())
+    att(role,String,VARCHAR())
+    att(title,String,VARCHAR())
+    att(url,String,VARCHAR())
 }
 
-class tag{
-    att(name,String,VARCHAR(10) NOT NULL)
+class tag {
+    att(label,String,VARCHAR() NOT NULL)
     att(desc,String,TEXT NOT NULL)
 }
 
-class entry{
-    att(label,String,VARCHAR(20) NOT NULL)
-    att(desc,String,TEXT NOT NULL)
-    att(creation,Date,DATETIME NOT NULL)
-    att(edition,Date,DATETIME NOT NULL)
-}
-
-class archive{
-    att(label,String,VARCHAR(20) NOT NULL)
-    att(desc,String,TEXT NOT NULL)
-    att(creation,Date,DATETIME NOT NULL)
-    att(edition,Date,DATETIME NOT NULL)
-}
-
-class tag_entry{
-    att(name,String,VARCHAR(10) NOT NULL)
+class entry {
+    att(label,String,VARCHAR() NOT NULL)
+    att(date_edit,Date,DATETIME)
+    att(date_joined,Date,DATETIME NOT NULL)
     att(desc,String,TEXT NOT NULL)
 }

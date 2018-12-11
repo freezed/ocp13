@@ -1,0 +1,24 @@
+/' = = = = = = = KEY = = = = = = = '/
+class contact {
+    pyk(id)
+    ..
+}
+
+class entry {
+    pyk(id)
+    fnk(user_id,user.id)
+    fnk(contact_id,contact.id)
+    ..
+}
+
+class tag {
+    pyk(id)
+    fnk(parent_id,tag.id)
+    fnk(contact_id,contact.id)
+    ..
+}
+
+class user <<auth>> {
+    pyk(id)
+    ..
+}

@@ -1,11 +1,13 @@
 @startuml
 
-title Functionnal domain
+title Domaine fonctionnel\nsimplifié
 
 /' = = = = = = = STYLE = = = = = = = '/
-skinparam linetype ortho
-hide <<django>> circle
+hide <<auth>> circle
 hide empty methods
+skinparam class {
+    BackgroundColor<<auth>> lightgreen
+}
 
 /' = = = = = = = MACRO = = = = = = = '/
 !define rel(a,b,c,d,e) a "b" c "d" e
@@ -14,8 +16,8 @@ hide empty methods
 /' = = = = = = = CLASSES = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/classes.iuml
 
-/' = = = = = = = NOTES = = = = = = = '/
-!includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/notes.iuml
+rel(tag,*,-,*,tag)
+rel(contact,*,-,*,tag)
 
 /' = = = = = = = LEGEND = = = = = = = '/
 !includeurl https://raw.githubusercontent.com/freezed/ocp13/wip-doc/doc/data_model/legend.iuml
