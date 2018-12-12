@@ -1,5 +1,26 @@
-{% include "base.html" %}
+{% extends "base.html" %}
+
+{% block title %}Mes contacts{% endblock %}
+
+{% block headercontent %}
+    <h2>Mes contacts</h2>
+{% endblock headercontent %}
+
+{% block navcontent %}
+  <ul class="pam">
+    <li class="pam inbl"><a href="#" title="">Lien #1</a></li>
+    <li class="pam inbl"><a href="#" title="">Lien #2</a></li>
+  </ul>
+{% endblock navcontent %}
 
 {% block maincontent %}
-<p>lead template</p>
+
+  {% if status %}
+    {% include "lead/list.html" %}
+
+  {% else %}
+    {% include "lead/none.html" %}
+
+  {% endif %}
+
 {% endblock maincontent %}
