@@ -1,7 +1,14 @@
-  <div class="flex-container--column">
-  {% for line in contacts %}
-    <div class="item-center"><strong>ligne</strong> : <em>{{ line }}</em></div>
-  {% empty %}
-    <p class="alert--warning">Oups…</p>
+  <table>
+    <tr>
+  {% for label in label_list %}
+      <th>{{ label }}</th>
   {% endfor %}
-  </div>
+    </tr>
+  {% for line in contacts %}
+    <tr>
+    {% for key, value in line.items %}
+      <td>{{ value }}</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+  </table>
