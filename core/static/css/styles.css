@@ -27,8 +27,3 @@ form ul {
   font-style: italic;
   font-variant: small-caps;
 }
-
-table td, table th {
-  border-collapse: collapse;
-  border: 1px solid;
-}
