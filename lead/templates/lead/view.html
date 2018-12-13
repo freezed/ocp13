@@ -1,5 +1,11 @@
 {% extends "lead/index.html" %}
 
 {% block maincontent %}
-  <p>View {{ contact_id }}</p>
+  <p>Fiche contact : <strong>{{contact.get_full_name|title}}</strong></p>
+  <div class="grid-2-small-1 has-gutter">
+    <div class="txtcenter"><strong>{{contact.was_created_today|yesno:"Nouveau contact,Ancien contact"}}</strong></div>
+  {% for label, field in contact.all.items %}
+    <div class="txtcenter"><strong>{{label}}</strong> : <em>{{field}}</em></div>
+  {% endfor %}
+  </ul>
 {% endblock maincontent %}

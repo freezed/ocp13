@@ -12,23 +12,18 @@ from lead.models import Contact
 # #############################################################################
 # URL & corresponding templates for an authenticated user with no contact
 auth_without_contact = [
-    ('lead-index', {}, ['lead/index.html', 'base.html', 'lead/none.html']),
-    ('lead-view', {'contact_id': 1}, ['lead/view.html', 'lead/index.html', 'base.html']),
-    ('lead-edit', {'contact_id': 1}, ['lead/edit.html', 'lead/index.html', 'base.html']),
-    ('lead-add', {}, ['lead/add.html', 'lead/index.html', 'base.html']),
-]
-
-# URL & corresponding templates for an authenticated user with 5 contacts
-auth_with_contacts = [
-    ('lead-index', {}, ['lead/index.html', 'base.html', 'lead/list.html']),
+    ('lead:index', {}, 200, ['lead/index.html', 'base.html', 'lead/none.html']),
+    ('lead:view', {'contact_id': 1}, 404, ['404.html', 'base.html']),
+    ('lead:edit', {'contact_id': 1}, 404, ['404.html', 'base.html']),
+    ('lead:add', {}, 200, ['lead/add.html', 'lead/index.html', 'base.html']),
 ]
 
 # URL & corresponding templates for an anonymous user
 anonymous = [
-    ('lead-add', {}, []),
-    ('lead-index', {}, []),
-    ('lead-view', {'contact_id': 1}, []),
-    ('lead-edit', {'contact_id': 1}, []),
+    ('lead:add', {}, []),
+    ('lead:index', {}, []),
+    ('lead:view', {'contact_id': 1}, []),
+    ('lead:edit', {'contact_id': 1}, []),
 ]
 
 
@@ -74,6 +69,7 @@ def contact_list(sample_contacts, sample_user):
         Contact.objects.create(user=user, **c)
 
     return Contact.objects.values(
+        'id',
         *sample_contacts[0].keys()
     ).all().order_by('-id')
 
@@ -90,29 +86,29 @@ def test_reach_page_anonymous(client_anon, url, kwargs, templates):
     assert response.templates == templates
 
 
-@mark.parametrize("url, kwargs, templates", auth_without_contact)
+@mark.parametrize("url, kwargs, status_c, templates", auth_without_contact)
 @mark.django_db
-def test_reach_page_authenticated_without_contact(client_auth, url, kwargs, templates):
+def test_reach_page_authenticated_without_contact(client_auth, url, kwargs, status_c, templates):
     response = client_auth.get(reverse(url, kwargs=kwargs))
 
-    assert response.status_code == 200
+    assert response.status_code == status_c
     assert [t.name for t in response.templates] == templates
 
 
-@mark.parametrize("url, kwargs, templates", auth_with_contacts)
 @mark.django_db
-def test_reach_page_authenticated_with_contacts(
+def test_reach_index_authenticated_with_contacts(
         client_auth,
         contact_list,
         sample_contacts,
-        url,
-        kwargs,
-        templates,
 ):
-    response = client_auth.get(reverse(url, kwargs=kwargs))
+    response = client_auth.get(reverse('lead:index'))
 
     assert response.status_code == 200
-    assert [t.name for t in response.templates] == templates
+    assert [t.name for t in response.templates] == [
+        'lead/index.html',
+        'base.html',
+        'lead/list.html'
+    ]
 
     for idx, contact in enumerate(sample_contacts):
         key_list = sample_contacts[idx]
@@ -121,6 +117,42 @@ def test_reach_page_authenticated_with_contacts(
             assert contact_list[idx][k] == response.context['contacts'][idx][k]
 
 
+# URL & corresponding templates for an authenticated user with 5 contacts
+@mark.parametrize("url, templates" , [
+    ('lead:view',  ['lead/view.html', 'lead/index.html', 'base.html']),
+    ('lead:edit',  ['lead/edit.html', 'lead/index.html', 'base.html']),
+])
+@mark.django_db
+def test_reach_page_authenticated_with_contacts(
+        sample_user,
+        sample_contacts,
+        url,
+        templates,
+):
+
+    user = sample_user
+    user, created = User.objects.get_or_create(**user)
+    client = Client()
+    client.force_login(user)
+
+    for c in sample_contacts:
+        Contact.objects.create(user=user, **c)
+
+    contact = Contact.objects.values(
+        'id',
+        'user_id',
+        *sample_contacts[0].keys()
+    ).filter(user=user)[:1]
+
+    response = client.get(reverse(url, args=[
+        contact.values_list('id', flat=True).get()
+    ]))
+
+    assert response.status_code == 200
+    assert [t.name for t in response.templates] == templates
+
+    for label, value in sample_contacts[4].items():
+        assert value  == response.context['contact'].all()[label]
 # #############################################################################
 #   lead.models.__str__()
 # #############################################################################
@@ -129,6 +161,18 @@ def test_contact__str__(client_auth, contact_list, sample_contacts):
     contact = Contact.objects.get(email=sample_contacts[0]['email'])
 
     assert contact.__str__() == 'jean'
+
+
+# #############################################################################
+#   lead.models.all()
+# #############################################################################
+@mark.django_db
+def test_contact_all(client_auth, contact_list, sample_contacts):
+    contact = Contact.objects.get(email=sample_contacts[0]['email'])
+    contact_dict = contact.all()
+
+    for label, field in sample_contacts[0].items():
+        assert contact_dict[label] == field
 
 
 # #############################################################################

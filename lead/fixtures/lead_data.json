@@ -1,0 +1,163 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$YKr0LI1ut3gI$TBGSiNCL98rUdmwOybJflZVJue6CU55cLfEAliuhrQw=",
+      "last_login": "2018-12-14T00:47:30.874Z",
+      "is_superuser": false,
+      "username": "zo\\u00e9",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-12-12T11:20:00.000",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$YKr0LI1ut3gI$TBGSiNCL98rUdmwOybJflZVJue6CU55cLfEAliuhrQw=",
+      "last_login": "2018-12-14T00:47:30.874Z",
+      "is_superuser": false,
+      "username": "\\u00e9oz",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-12-13T15:00:00.000Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "lead.contact",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "first_name": "jean",
+      "last_name": "bon",
+      "email": "jean@b.on",
+      "date_joined": "2018-12-12T16:39:29.978Z",
+      "date_edit": "2018-12-12T16:39:29.979Z",
+      "date_birthday": null,
+      "address_label": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "address_zip": "",
+      "address_city": "",
+      "address_country": "",
+      "phone": "",
+      "title": "",
+      "role": "",
+      "organization": "",
+      "url": "",
+      "note": ""
+    }
+  },
+  {
+    "model": "lead.contact",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "first_name": "lidye",
+      "last_name": "oduvillage",
+      "email": "li@d.yo",
+      "date_joined": "2018-12-12T16:39:30.025Z",
+      "date_edit": "2018-12-12T16:39:30.025Z",
+      "date_birthday": null,
+      "address_label": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "address_zip": "",
+      "address_city": "",
+      "address_country": "",
+      "phone": "",
+      "title": "",
+      "role": "",
+      "organization": "",
+      "url": "",
+      "note": ""
+    }
+  },
+  {
+    "model": "lead.contact",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "first_name": "paul",
+      "last_name": "ochon",
+      "email": "paul@auch.on",
+      "date_joined": "2018-12-12T16:39:30.047Z",
+      "date_edit": "2018-12-12T16:39:30.049Z",
+      "date_birthday": null,
+      "address_label": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "address_zip": "",
+      "address_city": "",
+      "address_country": "",
+      "phone": "",
+      "title": "",
+      "role": "",
+      "organization": "",
+      "url": "",
+      "note": ""
+    }
+  },
+  {
+    "model": "lead.contact",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "first_name": "ana",
+      "last_name": "liz",
+      "email": "an@al.iz",
+      "date_joined": "2018-12-12T16:39:30.073Z",
+      "date_edit": "2018-12-12T16:39:30.074Z",
+      "date_birthday": null,
+      "address_label": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "address_zip": "",
+      "address_city": "",
+      "address_country": "",
+      "phone": "",
+      "title": "",
+      "role": "",
+      "organization": "",
+      "url": "",
+      "note": ""
+    }
+  },
+  {
+    "model": "lead.contact",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "first_name": "cara",
+      "last_name": "melmou",
+      "email": "cara@melm.ou",
+      "date_joined": "2018-12-12T16:39:30.130Z",
+      "date_edit": "2018-12-12T16:39:30.130Z",
+      "date_birthday": null,
+      "address_label": "",
+      "address_line_1": "",
+      "address_line_2": "",
+      "address_zip": "",
+      "address_city": "",
+      "address_country": "",
+      "phone": "",
+      "title": "",
+      "role": "",
+      "organization": "",
+      "url": "",
+      "note": ""
+    }
+  }
+]

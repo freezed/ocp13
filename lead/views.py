@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.test import Client
 from django.urls import reverse
 from django.utils import timezone
@@ -45,7 +45,9 @@ def edit(request, contact_id):
     if request.user.is_anonymous:
         return redirect('login')
 
-    return render(request, "lead/edit.html", {'contact_id': contact_id})
+    contact = get_object_or_404(Contact, id=contact_id, user=request.user)
+
+    return render(request, "lead/edit.html", {'contact': contact})
 
 
 def view(request, contact_id):
@@ -53,7 +55,9 @@ def view(request, contact_id):
     if request.user.is_anonymous:
         return redirect('login')
 
-    return render(request, "lead/view.html", {'contact_id': contact_id})
+    contact = get_object_or_404(Contact, id=contact_id, user=request.user)
+
+    return render(request, "lead/view.html", {'contact': contact})
 
 
 def add(request):

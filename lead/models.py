@@ -36,6 +36,13 @@ class Contact(models.Model):
         """ Return shortname """
         return self.get_short_name()
 
+    def all(self):
+        """ return a dict containing all attributes """
+        return {
+            attr: val
+            for (attr, val) in vars(self).items()
+            if not attr.startswith('_')
+        }
 
     def get_full_name(self):
         """
