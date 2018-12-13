@@ -31,13 +31,13 @@
             <li class="pam inbl"><a href="{% url 'home' %}" title="Accueil">Accueil</a></li>
     {% if user.is_authenticated %}
             <li class="pam inbl"><a href="{% url 'user-index' %}" title="Lien vers mon compte'">Mon compte</a></li>
+      {% block navcontent %}{% endblock navcontent %}
             <li class="pam inbl"><a href="{% url 'logout' %}?next={{request.path}}" title="Lien vers la page de déconnection">Me déconnecter</a></li>
     {% else %}
             {% include 'a14n/anonymous.html' %}
     {% endif %}
           </ul>
         </nav>
-    {% block navcontent %}{% endblock navcontent %}
       </aside>
 
       <main id="main" role="main" class="flex-item-fluid pam">

@@ -13,6 +13,7 @@ def index(request):
         return redirect('login')
 
     label_list = [
+        'id',
         'first_name',
         'last_name',
         'phone',
@@ -37,3 +38,27 @@ def index(request):
         })
 
     return render(request, 'lead/index.html', context)
+
+
+def edit(request, contact_id):
+
+    if request.user.is_anonymous:
+        return redirect('login')
+
+    return render(request, "lead/edit.html", {'contact_id': contact_id})
+
+
+def view(request, contact_id):
+
+    if request.user.is_anonymous:
+        return redirect('login')
+
+    return render(request, "lead/view.html", {'contact_id': contact_id})
+
+
+def add(request):
+
+    if request.user.is_anonymous:
+        return redirect('login')
+
+    return render(request, "lead/add.html", {'form': 'no-form'})

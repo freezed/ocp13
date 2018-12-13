@@ -8,6 +8,31 @@ from lead.models import Contact
 
 
 # #############################################################################
+# ##     Data for parametrize
+# #############################################################################
+# URL & corresponding templates for an authenticated user with no contact
+auth_without_contact = [
+    ('lead-index', {}, ['lead/index.html', 'base.html', 'lead/none.html']),
+    ('lead-view', {'contact_id': 1}, ['lead/view.html', 'lead/index.html', 'base.html']),
+    ('lead-edit', {'contact_id': 1}, ['lead/edit.html', 'lead/index.html', 'base.html']),
+    ('lead-add', {}, ['lead/add.html', 'lead/index.html', 'base.html']),
+]
+
+# URL & corresponding templates for an authenticated user with 5 contacts
+auth_with_contacts = [
+    ('lead-index', {}, ['lead/index.html', 'base.html', 'lead/list.html']),
+]
+
+# URL & corresponding templates for an anonymous user
+anonymous = [
+    ('lead-add', {}, []),
+    ('lead-index', {}, []),
+    ('lead-view', {'contact_id': 1}, []),
+    ('lead-edit', {'contact_id': 1}, []),
+]
+
+
+# #############################################################################
 # ##     Fixtures
 # #############################################################################
 @fixture
@@ -56,40 +81,38 @@ def contact_list(sample_contacts, sample_user):
 # #############################################################################
 #   lead.views.index()
 # #############################################################################
-def test_reach_index_anonymous(client_anon):
-    response = client_anon.get(reverse('lead-index'))
+@mark.parametrize("url, kwargs, templates", anonymous)
+def test_reach_page_anonymous(client_anon, url, kwargs, templates):
+    response = client_anon.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == 302
     assert response.url == reverse('login')
-    assert response.templates == []
+    assert response.templates == templates
 
 
+@mark.parametrize("url, kwargs, templates", auth_without_contact)
 @mark.django_db
-def test_reach_index_authenticated_without_contact(client_auth):
-    response = client_auth.get(reverse('lead-index'))
+def test_reach_page_authenticated_without_contact(client_auth, url, kwargs, templates):
+    response = client_auth.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == 200
-    assert [t.name for t in response.templates] == [
-        'lead/index.html',
-        'base.html',
-        'lead/none.html',
-    ]
+    assert [t.name for t in response.templates] == templates
 
 
+@mark.parametrize("url, kwargs, templates", auth_with_contacts)
 @mark.django_db
-def test_reach_index_authenticated_with_contacts(
+def test_reach_page_authenticated_with_contacts(
         client_auth,
         contact_list,
-        sample_contacts
+        sample_contacts,
+        url,
+        kwargs,
+        templates,
 ):
-    response = client_auth.get(reverse('lead-index'))
+    response = client_auth.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == 200
-    assert [t.name for t in response.templates] == [
-        'lead/index.html',
-        'base.html',
-        'lead/list.html',
-    ]
+    assert [t.name for t in response.templates] == templates
 
     for idx, contact in enumerate(sample_contacts):
         key_list = sample_contacts[idx]
