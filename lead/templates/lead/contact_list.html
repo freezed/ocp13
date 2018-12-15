@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Mes contacts{% endblock %}
+
+{% block headercontent %}
+    <h2>Mes contacts</h2>
+{% endblock headercontent %}
+
+{% block navcontent %}
+  <ul class="pam">
+    <li class="pam inbl"><a href="{% url 'lead:index' %}" title="btn--small">Mes contacts</a></li>
+    <li class="pam inbl"><a href="{% url 'lead:add' %}" title="btn--small">Ajouter un contact</a></li>
+  </ul>
+{% endblock navcontent %}
+
+{% block maincontent %}
+
+  {% if contact_list %}
+      {% include 'lead/list.html' %}
+
+  {% else %}
+    {% include "lead/none.html" %}
+
+  {% endif %}
+
+{% endblock maincontent %}
