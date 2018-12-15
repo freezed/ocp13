@@ -1,20 +1,12 @@
-  <table class="table table--zebra">
-    <tr>
-  {% for label in label_list %}
-      <th>{{ label }}</th>
-  {% endfor %}
-      <th></th>
-      <th></th>
-    </tr>
-
-  {% for line in contacts %}
-    <tr>
-    {% for key, value in line.items %}
-      <td>{{ value }}</td>
-    {% endfor %}
-      <td><a href="{% url 'lead:view' line.id %}" title="Voir la fiche" class="btn--primary" role="button">Voir</a></td>
-      <td><a href="{% url 'lead:edit' line.id %}" title="Éditer la fiche" class="btn--primary" role="button">Modifier</a></td>
-    </tr>
-  {% endfor %}
-
-  </table>
+{% for contact in contact_list %}
+    <div class="flex-container">
+      <div class="item-center">
+        <a href="{% url 'lead:view' contact.id %}" title="Voir la fiche de {{ contact|title }}">
+          <strong>{{ contact.get_full_name|title }}</strong>
+        </a>
+        [<em>
+            <a href="{% url 'lead:edit' contact.id %}" title="Éditer la fiche de {{ contact|title }}">Modifier</a>
+        </em>]
+      </div>
+    </div>
+{% endfor %}

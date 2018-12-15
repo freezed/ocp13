@@ -11,15 +11,19 @@ from lead.models import Contact
 # ##     Data for parametrize
 # #############################################################################
 # URL & corresponding templates for an authenticated user with no contact
-auth_without_contact = [
-    ('lead:index', {}, 200, ['lead/index.html', 'base.html', 'lead/none.html']),
+AUTH_WITHOUT_CONTACT = [
+    ('lead:index', {}, 200, [
+        'lead/contact_list.html', 'base.html', 'lead/none.html'
+    ]),
     ('lead:view', {'contact_id': 1}, 404, ['404.html', 'base.html']),
     ('lead:edit', {'contact_id': 1}, 404, ['404.html', 'base.html']),
-    ('lead:add', {}, 200, ['lead/add.html', 'lead/index.html', 'base.html']),
+    ('lead:add', {}, 200, [
+        'lead/add.html', 'lead/contact_list.html', 'base.html'
+    ]),
 ]
 
 # URL & corresponding templates for an anonymous user
-anonymous = [
+ANONYMOUS = [
     ('lead:add', {}, []),
     ('lead:index', {}, []),
     ('lead:view', {'contact_id': 1}, []),
@@ -77,18 +81,20 @@ def contact_list(sample_contacts, sample_user):
 # #############################################################################
 #   lead.views.index()
 # #############################################################################
-@mark.parametrize("url, kwargs, templates", anonymous)
+@mark.parametrize("url, kwargs, templates", ANONYMOUS)
 def test_reach_page_anonymous(client_anon, url, kwargs, templates):
     response = client_anon.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == 302
-    assert response.url == reverse('login')
+    assert reverse('login') in response.url
     assert response.templates == templates
 
 
-@mark.parametrize("url, kwargs, status_c, templates", auth_without_contact)
+@mark.parametrize("url, kwargs, status_c, templates", AUTH_WITHOUT_CONTACT)
 @mark.django_db
-def test_reach_page_authenticated_without_contact(client_auth, url, kwargs, status_c, templates):
+def test_reach_page_authenticated_without_contact(
+        client_auth, url, kwargs, status_c, templates
+):
     response = client_auth.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == status_c
@@ -105,22 +111,16 @@ def test_reach_index_authenticated_with_contacts(
 
     assert response.status_code == 200
     assert [t.name for t in response.templates] == [
-        'lead/index.html',
+        'lead/contact_list.html',
         'base.html',
         'lead/list.html'
     ]
 
-    for idx, contact in enumerate(sample_contacts):
-        key_list = sample_contacts[idx]
-
-        for k in key_list:
-            assert contact_list[idx][k] == response.context['contacts'][idx][k]
-
 
 # URL & corresponding templates for an authenticated user with 5 contacts
-@mark.parametrize("url, templates" , [
-    ('lead:view',  ['lead/view.html', 'lead/index.html', 'base.html']),
-    ('lead:edit',  ['lead/edit.html', 'lead/index.html', 'base.html']),
+@mark.parametrize("url, templates", [
+    ('lead:view', ['lead/view.html', 'lead/contact_list.html', 'base.html']),
+    ('lead:edit', ['lead/edit.html', 'lead/contact_list.html', 'base.html']),
 ])
 @mark.django_db
 def test_reach_page_authenticated_with_contacts(
@@ -152,7 +152,9 @@ def test_reach_page_authenticated_with_contacts(
     assert [t.name for t in response.templates] == templates
 
     for label, value in sample_contacts[4].items():
-        assert value  == response.context['contact'].all()[label]
+        assert value == response.context['contact'].all()[label]
+
+
 # #############################################################################
 #   lead.models.__str__()
 # #############################################################################

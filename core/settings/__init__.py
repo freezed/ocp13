@@ -6,6 +6,9 @@ Splitted & stripped from scratch
 
 import os
 
+from django.urls import reverse
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROJ_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -88,3 +91,4 @@ TIME_ZONE = 'Europe/Paris'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+LOGIN_URL = 'login'
