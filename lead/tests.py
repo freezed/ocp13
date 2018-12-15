@@ -15,7 +15,7 @@ AUTH_WITHOUT_CONTACT = [
     ('lead:index', {}, 200, [
         'lead/contact_list.html', 'base.html', 'lead/none.html'
     ]),
-    ('lead:view', {'contact_id': 1}, 404, ['404.html', 'base.html']),
+    ('lead:view', {'pk': 1}, 404, ['404.html', 'base.html']),
     ('lead:edit', {'contact_id': 1}, 404, ['404.html', 'base.html']),
     ('lead:add', {}, 200, [
         'lead/add.html', 'lead/contact_list.html', 'base.html'
@@ -26,7 +26,7 @@ AUTH_WITHOUT_CONTACT = [
 ANONYMOUS = [
     ('lead:add', {}, []),
     ('lead:index', {}, []),
-    ('lead:view', {'contact_id': 1}, []),
+    ('lead:view', {'pk': 1}, []),
     ('lead:edit', {'contact_id': 1}, []),
 ]
 
@@ -119,7 +119,7 @@ def test_reach_index_authenticated_with_contacts(
 
 # URL & corresponding templates for an authenticated user with 5 contacts
 @mark.parametrize("url, templates", [
-    ('lead:view', ['lead/view.html', 'lead/contact_list.html', 'base.html']),
+    ('lead:view', ['lead/contact_detail.html', 'lead/contact_list.html', 'base.html']),
     ('lead:edit', ['lead/edit.html', 'lead/contact_list.html', 'base.html']),
 ])
 @mark.django_db
