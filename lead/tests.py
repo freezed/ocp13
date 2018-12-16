@@ -45,8 +45,13 @@ AUTH_WITH_FIVE_CONTACTS = [
 # ##     Fixtures
 # #############################################################################
 @fixture
-def sample_user():
+def sample_user_zoe():
     return {'username': 'zoé', 'password': 'zoézoézoé'}
+
+
+@fixture
+def sample_user_luc():
+    return {'username': 'luc', 'password': 'luclucluc'}
 
 
 @fixture
@@ -67,8 +72,8 @@ def client_anon():
 
 
 @fixture
-def client_auth(sample_user):
-    user, created = User.objects.get_or_create(**sample_user)
+def client_auth(sample_user_zoe):
+    user, created = User.objects.get_or_create(**sample_user_zoe)
     client = Client()
     client.force_login(user)
 
@@ -76,8 +81,8 @@ def client_auth(sample_user):
 
 
 @fixture
-def contact_list(sample_contacts, sample_user):
-    user, created = User.objects.get_or_create(**sample_user)
+def contact_list(sample_contacts, sample_user_zoe):
+    user, created = User.objects.get_or_create(**sample_user_zoe)
 
     for c in sample_contacts:
         Contact.objects.create(user=user, **c)
@@ -125,13 +130,13 @@ def test_reach_pages_authenticated_without_contact(
 @mark.parametrize("url, templates", AUTH_WITH_FIVE_CONTACTS)
 @mark.django_db
 def test_reach_pages_authenticated_with_contacts(
-        sample_user,
+        sample_user_zoe,
         sample_contacts,
         url,
         templates,
 ):
 
-    user = sample_user
+    user = sample_user_zoe
     user, created = User.objects.get_or_create(**user)
     client = Client()
     client.force_login(user)
@@ -154,6 +159,47 @@ def test_reach_pages_authenticated_with_contacts(
 
     for label, value in sample_contacts[4].items():
         assert value == response.context['contact'].all()[label]
+
+
+@mark.parametrize("url", [('lead:delete'),('lead:view'),('lead:edit')])
+@mark.django_db
+def test_acces_contacts_cross_user(
+        sample_user_zoe,
+        sample_user_luc,
+        sample_contacts,
+        url,
+):
+    # Add Contacts with first user (zoe)
+    user = sample_user_zoe
+    user, created = User.objects.get_or_create(**user)
+    client = Client()
+    client.force_login(user)
+
+    # add contacts in db
+    for c in sample_contacts:
+        Contact.objects.create(user=user, **c)
+
+    #keep a contact from zoe
+    zoe_contact = Contact.objects.values(
+        'id',
+        'user_id',
+        *sample_contacts[0].keys()
+    ).filter(user=user)[:1]
+
+    client.logout()
+
+    # connect another user (luc)
+    user = sample_user_luc
+    user = User.objects.create_user(**user)
+    client.force_login(user)
+
+    # now try to acces to CRUD on contacts from previous user (zoe)
+    response = client.get(reverse(url, args=[
+        zoe_contact.values_list('id', flat=True).get()
+    ]))
+
+    assert response.status_code == 404
+    assert [t.name for t in response.templates] == ['404.html', 'base.html']
 
 
 # #############################################################################
@@ -190,8 +236,8 @@ def test_contact_create(client_auth, new_contact):
 #   lead.views.ContactDelete()
 # #############################################################################
 @mark.django_db
-def test_contact_delete(sample_user, contact_list, sample_contacts):
-    user = sample_user
+def test_contact_delete(sample_user_zoe, contact_list, sample_contacts):
+    user = sample_user_zoe
     user, created = User.objects.get_or_create(**user)
     client = Client()
     client.force_login(user)

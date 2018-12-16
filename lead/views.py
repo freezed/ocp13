@@ -14,16 +14,20 @@ class ContactList(LoginRequiredMixin, ListView):
     """
     Index page of `lead` app, show contact list of the authenticated user
     """
-    model = Contact
     context_object_name = 'contact_list'
+
+    def get_queryset(self):
+        return Contact.objects.filter(user=self.request.user)
 
 
 class ContactDetail(LoginRequiredMixin, DetailView):
     """
     Show details of the choosen contact
     """
-    model = Contact
     pk_url_kwarg = 'contact_id'
+
+    def get_queryset(self):
+        return Contact.objects.filter(user=self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,17 +53,21 @@ class ContactUpdate(LoginRequiredMixin, UpdateView):
     """
     Update a contact
     """
-    model = Contact
     form_class = ContactForm
     pk_url_kwarg = 'contact_id'
     # success_url = reverse_lazy('lead:view', kwargs={'contact_id': pk_url_kwarg})
     success_url = reverse_lazy('lead:index')
+
+    def get_queryset(self):
+        return Contact.objects.filter(user=self.request.user)
 
 
 class ContactDelete(LoginRequiredMixin, DeleteView):
     """
     Delete a contact
     """
-    model = Contact
     pk_url_kwarg = 'contact_id'
     success_url = reverse_lazy('lead:index')
+
+    def get_queryset(self):
+        return Contact.objects.filter(user=self.request.user)
