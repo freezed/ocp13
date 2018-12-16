@@ -1,6 +1,6 @@
 /* Votre Style */
 
-h1, [class*="grid"] > *  {
+h1 {
   background: #fe4a49;
 }
 

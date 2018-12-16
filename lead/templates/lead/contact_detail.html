@@ -7,5 +7,14 @@
   {% for label, field in contact.all.items %}
     <div class="txtcenter"><strong>{{label}}</strong> : <em>{{field}}</em></div>
   {% endfor %}
-  </ul>
+  </div>
+  <div class="flex-container pam">
+    <div class="item-center">
+      <a href="{% url 'lead:delete' contact.id %}" title="Supprimer le contact «{{contact.get_full_name|title}}»">
+        <button class="btn--danger" >
+          Supprimer le contact <strong>{{contact.get_full_name|title}}</strong>
+        </button>
+      </a>
+    </div>
+  </div>
 {% endblock maincontent %}

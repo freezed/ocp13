@@ -1,0 +1,30 @@
+{% extends "lead/contact_list.html" %}
+
+{% block maincontent %}
+  <div class="alert--warning">
+    Suppression du contact : <strong>{{contact.get_full_name|title}}</strong> ?
+  </div>
+
+  <div class="grid-4-small-1 has-gutter pam">
+
+    <div class="grid-offset"></div>
+
+    <div>
+      <form method="post" action="">{% csrf_token %}
+        <input type="Submit" name="submit" value="Confirmer" class="btn--danger" title="Supprimer {{contact.get_full_name|title}}"/>
+      </form>
+    </div>
+
+    <div>
+      <a href="{% url 'lead:view' contact.id %}" title="Retour à la page du contact {{contact.get_full_name|title}}">
+        <button class="btn--success" >Annuler</button>
+      </a>
+    </div>
+
+  </div>
+{% endblock maincontent %}
+
+<!--
+<button class="btn" >Confirmer</button>
+<a href="{% url 'lead:delete' contact.id %}" ></a>
+-->

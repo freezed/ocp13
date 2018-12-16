@@ -5,7 +5,8 @@
           <strong>{{ contact.get_full_name|title }}</strong>
         </a>
         [<em>
-            <a href="{% url 'lead:edit' contact.id %}" title="Éditer la fiche de {{ contact|title }}">Modifier</a>
+            <a href="{% url 'lead:edit' contact.id %}" title="Éditer la fiche de {{ contact|title }}">Modifier</a> -
+            <a href="{% url 'lead:delete' contact.id %}" title="Supprimer la fiche de {{ contact|title }}">Supprimer</a>
         </em>]
       </div>
     </div>

@@ -2,29 +2,29 @@
 
 ## Validated specifications
 
-* [x] [1. ~Basic Django Hello-World~][1] :
-* [x] [2. ~Set-up Heroku staging environnement~][2] :
+* [x] [~1. Basic Django Hello-World~][1] :
+* [x] [~2. Set-up Heroku staging environnement~][2] :
     - [x] ~`Procfile`~
     - [x] ~`settings.py`~
     - [x] ~`gunicorn`~
     - [x] ~`ENV_VARS`~
-* [x] [3. ~Set-up Sentry~][3] :
-* [x] [4. ~Set-up travis~][4] :
-* [x] [13. ~Add connection to a coverage service~][13] :
-* [x] [8. ~Define physical data model~][8] :
-* [x] [6. ~Configure statics~][6] :
+* [x] [~3. Set-up Sentry~][3] :
+* [x] [~4. Set-up travis~][4] :
+* [x] [~13. Add connection to a coverage service~][13] :
+* [x] [~8. Define physical data model~][8] :
+* [x] [~6. Configure statics~][6] :
     - [x] ~`static/favico.ico` (requested by browsers)~
     - [x] ~devel env~
     - [x] ~heroku local~
     - [x] ~heroku~
-* [x] [7. ~Use knacss HTML/CSS template~][7] :
+* [x] [~7. Use knacss HTML/CSS template~][7] :
     - [x] ~`home.html`~
     - [x] ~`about.html`~
     - [x] ~`404.html` & `500.html`~
     - [x] ~footer~
     - [x] ~header~
-* [x] [9. ~Postgres config~][9] :
-* [x] [11. ~Add `a14n` app (authentification)~][11] :
+* [x] [~9. Postgres config~][9] :
+* [x] [~11. Add `a14n` app (authentification)~][11] :
     - [x] ~signup~
     - [x] ~logout~
     - [x] ~login~
@@ -35,13 +35,13 @@
     - [ ] `lead` list access
     - [ ] next deadline
     - [ ] last entry
-* [ ] [10. Add `lead` app (contact)][10] :
+* [ ] [~10. Add `lead` app (contact)~][10] :
     - [x] ~1st test, view & template~
-    - [x] ~models.py` (contact)
+    - [x] ~models.py` (contact)~
     - [x] ~Create~
     - [x] ~Read~
     - [x] ~Update~
-    - [ ] Delete
+    - [x] ~Delete~
 * [ ] [21. Add `log` app (entry)][21] :
     - [ ] 1st test, view & template
     - [ ] `models.py` (entry)
