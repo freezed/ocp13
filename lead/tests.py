@@ -17,6 +17,7 @@ AUTH_WITHOUT_CONTACT = [
     ]),
     ('lead:view', {'contact_id': 1}, 404, ['404.html', 'base.html']),
     ('lead:edit', {'contact_id': 1}, 404, ['404.html', 'base.html']),
+    ('lead:delete', {'contact_id': 1}, 404, ['404.html', 'base.html']),
     ('lead:add', {}, 200, [
         'lead/contact_form.html', 'lead/contact_list.html', 'base.html'
     ]),
@@ -28,6 +29,7 @@ ANONYMOUS = [
     ('lead:index', {}, []),
     ('lead:view', {'contact_id': 1}, []),
     ('lead:edit', {'contact_id': 1}, []),
+    ('lead:delete', {'contact_id': 1}, []),
 ]
 
 
@@ -35,6 +37,7 @@ ANONYMOUS = [
 AUTH_WITH_FIVE_CONTACTS = [
     ('lead:view', ['lead/contact_detail.html', 'lead/contact_list.html', 'base.html']),
     ('lead:edit', ['lead/contact_form.html', 'lead/contact_list.html', 'base.html']),
+    ('lead:delete', ['lead/contact_confirm_delete.html', 'lead/contact_list.html', 'base.html']),
 ]
 
 
@@ -181,6 +184,28 @@ def test_contact_create(client_auth, new_contact):
 
     assert response.status_code == 302
     assert response.url == reverse('lead:index')
+
+
+# #############################################################################
+#   lead.views.ContactDelete()
+# #############################################################################
+@mark.django_db
+def test_contact_delete(sample_user, contact_list, sample_contacts):
+    user = sample_user
+    user, created = User.objects.get_or_create(**user)
+    client = Client()
+    client.force_login(user)
+
+    contact_to_delete = Contact.objects.get(
+        user=user,
+        email=sample_contacts[2]['email']
+    )
+    response = client.post(reverse('lead:delete', kwargs={'contact_id': contact_to_delete.id}))
+
+    assert not Contact.objects.filter(id=contact_to_delete.id).exists()
+    assert response.status_code == 302
+    assert response.url == reverse('lead:index')
+
 
 # #############################################################################
 #   lead.models.__str__()
