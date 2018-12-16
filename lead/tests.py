@@ -18,7 +18,7 @@ AUTH_WITHOUT_CONTACT = [
     ('lead:view', {'contact_id': 1}, 404, ['404.html', 'base.html']),
     ('lead:edit', {'contact_id': 1}, 404, ['404.html', 'base.html']),
     ('lead:add', {}, 200, [
-        'lead/add.html', 'lead/contact_list.html', 'base.html'
+        'lead/contact_form.html', 'lead/contact_list.html', 'base.html'
     ]),
 ]
 
@@ -98,7 +98,7 @@ def test_reach_page_authenticated_without_contact(
     response = client_auth.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == status_c
-    assert [t.name for t in response.templates] == templates
+    assert [t.name for t in response.templates][:3] == templates
 
 
 @mark.django_db
@@ -120,7 +120,7 @@ def test_reach_index_authenticated_with_contacts(
 # URL & corresponding templates for an authenticated user with 5 contacts
 @mark.parametrize("url, templates", [
     ('lead:view', ['lead/contact_detail.html', 'lead/contact_list.html', 'base.html']),
-    ('lead:edit', ['lead/edit.html', 'lead/contact_list.html', 'base.html']),
+    ('lead:edit', ['lead/contact_form.html', 'lead/contact_list.html', 'base.html']),
 ])
 @mark.django_db
 def test_reach_page_authenticated_with_contacts(
@@ -149,7 +149,7 @@ def test_reach_page_authenticated_with_contacts(
     ]))
 
     assert response.status_code == 200
-    assert [t.name for t in response.templates] == templates
+    assert [t.name for t in response.templates][:3] == templates
 
     for label, value in sample_contacts[4].items():
         assert value == response.context['contact'].all()[label]

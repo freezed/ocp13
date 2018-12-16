@@ -1,0 +1,14 @@
+{% extends "lead/contact_list.html" %}
+
+{% block maincontent %}
+  <p>{{ contact_id }}</p>
+
+<form method="post" action="" class="">
+{% csrf_token %}
+  <table>
+  {{ form.as_table }}
+  </table>
+  <input type="Submit" name="submit" id="" value="Envoyer" />
+<form>
+
+{% endblock maincontent %}
