@@ -37,10 +37,10 @@
     - [ ] last entry
 * [ ] [10. Add `lead` app (contact)][10] :
     - [x] ~1st test, view & template~
-    - [ ] `models.py` (contact)
-    - [ ] Create
-    - [ ] Read
-    - [ ] Update
+    - [x] ~models.py` (contact)
+    - [x] ~Create~
+    - [x] ~Read~
+    - [x] ~Update~
     - [ ] Delete
 * [ ] [21. Add `log` app (entry)][21] :
     - [ ] 1st test, view & template

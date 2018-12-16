@@ -31,6 +31,13 @@ ANONYMOUS = [
 ]
 
 
+# URL & corresponding templates for an authenticated user with 5 contacts
+AUTH_WITH_FIVE_CONTACTS = [
+    ('lead:view', ['lead/contact_detail.html', 'lead/contact_list.html', 'base.html']),
+    ('lead:edit', ['lead/contact_form.html', 'lead/contact_list.html', 'base.html']),
+]
+
+
 # #############################################################################
 # ##     Fixtures
 # #############################################################################
@@ -78,11 +85,22 @@ def contact_list(sample_contacts, sample_user):
     ).all().order_by('-id')
 
 
+@fixture
+def new_contact():
+    return {
+        'first_name': 'new',
+        'last_name': 'user',
+        'email': 'new@us.er',
+        'role': 'test dummy',
+        'role': 'test dummy',
+        }
+
+
 # #############################################################################
-#   lead.views.index()
+#   lead.views.Contact{List,Detail,Create,Add}()
 # #############################################################################
 @mark.parametrize("url, kwargs, templates", ANONYMOUS)
-def test_reach_page_anonymous(client_anon, url, kwargs, templates):
+def test_reach_pages_anonymous(client_anon, url, kwargs, templates):
     response = client_anon.get(reverse(url, kwargs=kwargs))
 
     assert response.status_code == 302
@@ -92,7 +110,7 @@ def test_reach_page_anonymous(client_anon, url, kwargs, templates):
 
 @mark.parametrize("url, kwargs, status_c, templates", AUTH_WITHOUT_CONTACT)
 @mark.django_db
-def test_reach_page_authenticated_without_contact(
+def test_reach_pages_authenticated_without_contact(
         client_auth, url, kwargs, status_c, templates
 ):
     response = client_auth.get(reverse(url, kwargs=kwargs))
@@ -101,29 +119,9 @@ def test_reach_page_authenticated_without_contact(
     assert [t.name for t in response.templates][:3] == templates
 
 
+@mark.parametrize("url, templates", AUTH_WITH_FIVE_CONTACTS)
 @mark.django_db
-def test_reach_index_authenticated_with_contacts(
-        client_auth,
-        contact_list,
-        sample_contacts,
-):
-    response = client_auth.get(reverse('lead:index'))
-
-    assert response.status_code == 200
-    assert [t.name for t in response.templates] == [
-        'lead/contact_list.html',
-        'base.html',
-        'lead/list.html'
-    ]
-
-
-# URL & corresponding templates for an authenticated user with 5 contacts
-@mark.parametrize("url, templates", [
-    ('lead:view', ['lead/contact_detail.html', 'lead/contact_list.html', 'base.html']),
-    ('lead:edit', ['lead/contact_form.html', 'lead/contact_list.html', 'base.html']),
-])
-@mark.django_db
-def test_reach_page_authenticated_with_contacts(
+def test_reach_pages_authenticated_with_contacts(
         sample_user,
         sample_contacts,
         url,
@@ -154,6 +152,35 @@ def test_reach_page_authenticated_with_contacts(
     for label, value in sample_contacts[4].items():
         assert value == response.context['contact'].all()[label]
 
+
+# #############################################################################
+#   lead.views.ContactList()
+# #############################################################################
+@mark.django_db
+def test_reach_contactlist_authenticated_with_contacts(
+        client_auth,
+        contact_list,
+        sample_contacts,
+):
+    response = client_auth.get(reverse('lead:index'))
+
+    assert response.status_code == 200
+    assert [t.name for t in response.templates] == [
+        'lead/contact_list.html',
+        'base.html',
+        'lead/list.html'
+    ]
+
+
+# #############################################################################
+#   lead.views.ContactCreate()
+# #############################################################################
+@mark.django_db
+def test_contact_create(client_auth, new_contact):
+    response = client_auth.post(reverse('lead:add'), new_contact)
+
+    assert response.status_code == 302
+    assert response.url == reverse('lead:index')
 
 # #############################################################################
 #   lead.models.__str__()
