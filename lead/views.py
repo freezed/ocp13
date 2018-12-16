@@ -1,8 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.db import models
 from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic import DetailView, ListView
 
+from lead.forms import ContactForm
 from lead.models import Contact
 
 
@@ -28,19 +32,34 @@ class ContactDetail(LoginRequiredMixin, DetailView):
         return context
 
 
-def edit(request, contact_id):
+class ContactCreate(LoginRequiredMixin, CreateView):
+    """
+    Create a new Contact
+    """
+    model = Contact
+    form_class = ContactForm
+    success_url = reverse_lazy('lead:index')
 
-    if request.user.is_anonymous:
-        return redirect('login')
-
-    contact = get_object_or_404(Contact, id=contact_id, user=request.user)
-
-    return render(request, "lead/edit.html", {'contact': contact})
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
-def add(request):
+class ContactUpdate(LoginRequiredMixin, UpdateView):
+    """
+    Update a contact
+    """
+    model = Contact
+    form_class = ContactForm
+    pk_url_kwarg = 'contact_id'
+    # success_url = reverse_lazy('lead:view', kwargs={'contact_id': pk_url_kwarg})
+    success_url = reverse_lazy('lead:index')
 
-    if request.user.is_anonymous:
-        return redirect('login')
 
-    return render(request, "lead/add.html", {'form': 'no-form'})
+class ContactDelete(LoginRequiredMixin, DeleteView):
+    """
+    Delete a contact
+    """
+    model = Contact
+    pk_url_kwarg = 'contact_id'
+    success_url = reverse_lazy('lead:index')
