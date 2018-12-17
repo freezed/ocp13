@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:contact_id>', ContactDetail.as_view(), name='view'),
     path('<int:contact_id>/edit/', ContactUpdate.as_view(), name='edit'),
     path('<int:contact_id>/delete/', ContactDelete.as_view(), name='delete'),
+    path('<int:contact_id>/log/', include('log.urls')),
 ]

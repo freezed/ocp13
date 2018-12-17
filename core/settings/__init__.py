@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'a14n.apps.A14nConfig',
     'user.apps.UserConfig',
     'lead.apps.LeadConfig',
+    'log.apps.LogConfig',
 ]
 
 MIDDLEWARE = [
