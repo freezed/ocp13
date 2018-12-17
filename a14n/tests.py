@@ -106,7 +106,7 @@ def test_signup_valid(client_anonymous):
     )
     assert response.wsgi_request.user.is_authenticated
     assert 'alice' == User.objects.get(id=1).username
-    assert (reverse('user-index'), 302) == response.redirect_chain[0]
+    assert (reverse('user:index'), 302) == response.redirect_chain[0]
     assert ['user/index.html', 'base.html'] == [t.name for t in response.templates]
 
 
