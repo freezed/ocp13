@@ -1,8 +1,10 @@
-from django.urls import include, path
+from user.views import UserDetail, UserUpdate
 
-from user import views as user_views
+from django.urls import path
+
 
 app_name = 'user'
 urlpatterns = [
-    path('', user_views.index, name='index'),
+    path('', UserDetail.as_view(), name='detail'),
+    path('edit', UserUpdate.as_view(), name='update'),
 ]

@@ -1,22 +1,46 @@
-import datetime
+from user.forms import UserForm
 
-from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic.edit import UpdateView
+from django.views.generic import DetailView
 
 
-def index(request):
+class UserDetail(LoginRequiredMixin, DetailView):
+    """
+    Show details of the connected user
+    """
 
-    if request.user.is_anonymous:
-        return redirect('home')
+    def get_object(self):
+        return get_object_or_404(User, pk=self.request.user.id)
 
-    template = 'user/index.html'
-    user = User.objects.filter(
-        username=request.user.username
-    ).values('date_joined','last_login')
+    def get_queryset(self):
+        return User.objects.filter(username=self.request.user)
 
-    context = {
-        'date_joined': user.values_list('date_joined', flat=True).get(),
-        'last_login': user.values_list('last_login', flat=True).get(),
-    }
+    def get_context_data(self, **kwargs):
+        user = User.objects.filter(
+            username=self.request.user
+        ).values('date_joined', 'last_login')
 
-    return render(request, template, context)
+        context = super().get_context_data(**kwargs)
+        context['date_joined'] = user.values_list(
+            'date_joined', flat=True
+        ).get()
+        context['last_login'] = user.values_list(
+            'last_login', flat=True
+        ).get()
+
+        return context
+
+
+class UserUpdate(LoginRequiredMixin, UpdateView):
+    """
+    Update user informations
+    """
+    form_class = UserForm
+    success_url = reverse_lazy('user:detail')
+
+    def get_object(self):
+        return get_object_or_404(User, pk=self.request.username.id)

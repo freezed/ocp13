@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block headercontent %}
+    <h2>Mon compte</h2>
+{% endblock headercontent %}
+
+{% block navcontent %}
+  <ul class="pam">
+    <li class="pam inbl"><a href="{% url 'lead:index' %}" title="">Mes contacts</a></li>
+    <li class="pam inbl"><a href="#" title="">Action #2</a></li>
+  </ul>
+{% endblock navcontent %}
+
+{% block maincontent %}
+  <div class="">
+    <form method="post" action="" class="">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="Submit" name="submit" value="Modifier" />
+    </form>
+  </div>
+{% endblock maincontent %}
