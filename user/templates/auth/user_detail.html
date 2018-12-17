@@ -18,5 +18,33 @@
     <div class="item-center"><strong>Nom d'utilisateur</strong> : <em>{{user}}</em></div>
     <div class="item-center"><strong>Date d'inscription</strong> : <em>{{date_joined}}</em></div>
     <div class="item-center"><strong>Dernière connection</strong> : <em>{{last_login}}</em></div>
+    <hr />
+
+    {% if last_contact %}
+    <div class="item-center">
+
+      <strong>Dernier contact ajouté</strong> :
+        {{ last_contact.first_name|title }} {{ last_contact.last_name|title }}
+      <small>
+        [
+        <a href="{% url 'lead:view' last_contact.id %}" title="Aller à la fiche contact de {{ last_contact.first_name|title }}">Voir</a>
+        -
+        <a href="{% url 'lead:edit' last_contact.id %}" title="Modifier la fiche contact de {{ last_contact.first_name|title }}">Éditer</a>
+        ]
+      </small>
+    </div>
+
+    {% else %}
+    <div class="item-center">Pas de contact enregistré…</div>
+
+    {% endif %}
+    <hr />
+
+    <div class="item-center">
+      <a href="{% url 'user:update' %}" title="Aller à la page de mise à jour de mes informations">
+        <button class="btn--primary" >Modifier mes info</button>
+      </a>
+    </div>
+
   </div>
 {% endblock maincontent %}

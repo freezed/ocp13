@@ -2,43 +2,70 @@ from pytest import fixture, mark
 
 from django.contrib.auth.models import User
 from django.test import Client
+from django.urls import reverse
+
+
+# #############################################################################
+# ##     Fixtures
+# #############################################################################
+@fixture
+def sample_user_zoe():
+    return {'username': 'zoé', 'password': 'zoézoézoé'}
 
 
 @fixture
-def dt_client():
+def client_anon():
     """ Provide a Django test client """
     return Client()
 
 
+@fixture
+def client_auth(sample_user_zoe):
+    user, created = User.objects.get_or_create(**sample_user_zoe)
+    client = Client()
+    client.force_login(user)
+
+    return client
+
+
 # #############################################################################
-#   user.views.index()
+#   user.views.{UserDetail|UserUpdate}()
 # #############################################################################
 @mark.parametrize(
-    "templates, url", [
-        (['auth/user_detail.html', 'base.html'], '/user/'),
+    "url", [('user:detail'), ('user:update')]
+)
+@mark.django_db
+def test_reach_pages_anonymous(client_anon, url):
+    response = client_anon.get(reverse(url))
+
+    assert response.status_code == 302
+    assert reverse('login') in response.url
+
+
+@mark.parametrize(
+    "url, templates", [
+        ('user:detail', ['auth/user_detail.html', 'base.html']),
+        ('user:update', ['auth/user_form.html', 'base.html']),
     ]
 )
 @mark.django_db
-def test_index_authenticated(dt_client, templates, url):
-    USER = {
-        'username': 'alice',
-        'password': '@lice1234',
-    }
+def test_index_authenticated_without_contacts(
+        client_auth,
+        sample_user_zoe,
+        url,
+        templates,
+):
 
-    test_user = User.objects.create_user(**USER)
-    dt_client.force_login(test_user)
-    response = dt_client.get(url)
+    client = client_auth
+    response = client.get(reverse(url))
+    user = sample_user_zoe
 
     assert response.status_code == 200
-    assert [t.name for t in response.templates] == templates
-    assert response.context['user'].username == USER['username']
-    assert response.context['date_joined']
-    assert response.context['last_login']
+    assert [t.name for t in response.templates][:2] == templates
+    assert response.context['user'].username == user['username']
 
-
-def test_index_anonymous(dt_client):
-    response = dt_client.get('/user/')
-
-    assert response.wsgi_request.user.is_anonymous
-    assert response.status_code == 302
-    assert response.url == '/my/login/?next=/user/'
+    # TODO #27 : Add tests with contacts created
+    if url == 'user:detail':
+        assert response.context['date_joined']
+        assert response.context['last_login']
+        assert not response.context['last_contact']

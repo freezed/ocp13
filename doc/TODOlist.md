@@ -31,8 +31,9 @@
 * [ ] [14 Add `user` app (account)][14] :
     - [x] ~index page~
     - [x] ~show personnal info~
-    - [x] update personnal info
-    - [ ] `lead` list access
+    - [x] ~update personnal info~
+    - [x] ~`lead` list access~
+    - [x] ~last contact edited~
     - [ ] next deadline
     - [ ] last entry
 * [ ] [~10. Add `lead` app (contact)~][10] :
