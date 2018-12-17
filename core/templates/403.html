@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Das geht net ! {% endblock %}
+
+{% block headercontent %}
+    <hr />
+    <h2>Erreur 403</h2>
+{% endblock headercontent %}
+
+{% block maincontent %}
+        <p>Jeton CSRF manquant ou incorrect, cela peut se produire quand on bidouille un formulaire…</p>
+        <p>Assurez vous que votre navigateur accepte les cookies.</p>
+        <p>Votre navigation est peut être éparpillée dans le temps et dans vos onglets, dans ce cas recharger la page précénte (celle avec le formulaire).</p>
+{% endblock maincontent %}
