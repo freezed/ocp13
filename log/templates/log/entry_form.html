@@ -1,0 +1,26 @@
+{% extends "lead/contact_list.html" %}
+
+{% block maincontent %}
+  <p>
+    Nouvelle entrée d'historique pour le contact :
+      <strong>
+        {% for l,v in contact.items %}
+          {{ l }} -
+          {{ v }}
+        {% endfor %}
+        -
+        {{ contact }}
+      </strong>
+  </p>
+
+<form method="post" action="">
+{% csrf_token %}
+
+  <table>
+  {{ form.as_table }}
+  </table>
+
+  <input type="Submit" name="submit" value="Envoyer" />
+<form>
+
+{% endblock maincontent %}

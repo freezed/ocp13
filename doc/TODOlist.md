@@ -36,7 +36,7 @@
     - [x] ~last contact edited~
     - [ ] next deadline
     - [ ] last entry
-* [ ] [~10. Add `lead` app (contact)~][10] :
+* [x] [~10. Add `lead` app (contact)~][10] :
     - [x] ~1st test, view & template~
     - [x] ~models.py` (contact)~
     - [x] ~Create~
@@ -44,12 +44,18 @@
     - [x] ~Update~
     - [x] ~Delete~
 * [ ] [21. Add `log` app (entry)][21] :
-    - [ ] 1st test, view & template
-    - [ ] `models.py` (entry)
-    - [ ] Create
-    - [ ] Read
-    - [ ] Update
-    - [ ] Delete
+    * [x] ~1st test, view & template~
+    * [x] ~`models.py` (entry)~
+    * [x] ~Create~
+    * [ ] finish `views` & `forms` tests
+    * [ ] Read
+    * [ ] Update
+    * [ ] Delete
+    * [ ] Raise tests cases :
+        * [ ] Populate db with 3 users
+        * [ ] Add contact(s) to 2 users
+        * [ ] Add entry(ies) to 1 users
+        * [ ] Cross-test between user/contacts/entries
 * [ ] [15. Add `tag` app (label)][15] :
     - [ ] 1st test, view & template
     - [ ] `models.py` (label)

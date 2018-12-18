@@ -8,7 +8,14 @@
 {% endblock headercontent %}
 
 {% block maincontent %}
-        <p>Jeton CSRF manquant ou incorrect, cela peut se produire quand on bidouille un formulaire…</p>
+        <h3>Forbidden !</h3>
+        <p>Le serveur a compris la requête, mais refuse de l'exécuter (nananère!). Cela signifie généralement que l'authentification a été acceptée mais que les droits d'accès ne vous permettent pas d'accéder à la ressource.</p>
+        <p>Votre navigation est peut être éparpillée dans le temps et dans vos onglets, dans ce cas rechargez la page précédente avec le formulaire peut éventuellement vous tirer d'affaire.</p>
         <p>Assurez vous que votre navigateur accepte les cookies.</p>
-        <p>Votre navigation est peut être éparpillée dans le temps et dans vos onglets, dans ce cas recharger la page précénte (celle avec le formulaire).</p>
+        <p>Sinon vous avez peut-être essayé de bidouiller :</p>
+        <ul>
+          <li>un formulaire (jeton CSRF manquant ou incorrect)</li>
+          <li>une URL (atteindre une ressouce qui ne vous concerne pas)</li>
+        </ul>
+
 {% endblock maincontent %}
