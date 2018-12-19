@@ -1,11 +1,13 @@
-# [PyDev] Projet final
+#### Développeur d'application Python - Projet final
 
-_**Note** : La version à jour de ce document est disponible [à cette adresse][readme]._
+_**Note** : La version livrée de ce document est disponible [à cette adresse][readme]._
 
 [![Build Status](https://www.travis-ci.org/freezed/ocp13.svg?branch=master)](https://www.travis-ci.org/freezed/ocp13)
 [![Coverage Status](https://coveralls.io/repos/github/freezed/ocp13/badge.svg?branch=master)](https://coveralls.io/github/freezed/ocp13?branch=master)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/freezed/ocp13.svg)](http://isitmaintained.com/project/freezed/ocp13 "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/freezed/ocp13.svg)](http://isitmaintained.com/project/freezed/ocp13 "Percentage of issues still open")
+
+# Note d'intention
 
 ## Contexte _pédagogique_
 
@@ -34,9 +36,7 @@ Bien qu'aillant chacun des activités (_très_) différentes, après une écoute
     - en lot, préférence pour les formats [Vcard][wikivcf] et/ou [CSV][wikicsv]
     - connection à un serveur [CardDAV][wikidav]
 
-_(… à suivre…)_
-
-### Modélisation de données
+### Modèle de données simplifié
 
 ![Domaine fonctionnel simplifié][lfd]
 
@@ -44,33 +44,32 @@ _(… à suivre…)_
 ## Livrables attendus
 
 * Une [note d’intention][readme] expliquant les objectifs du projet.
-* Un bilan de votre expérience sur ce projet.
+* Un [bilan de votre expérience][bilan] sur ce projet.
 * [Document détaillant votre implémentation][approach] des 12 bonnes pratiques de l’[_extreme programming_][wikixtrem].
 * Lien vers votre [tableau agile][kanban]
-* Lien vers votre projet _déployé_
-* Un support de présentation
+* Lien vers votre [projet déployé][ocp13]
+* Un [support de présentation][pitch]
 
-[approach]: https://github.com/freezed/ocp13/blob/wip-doc/doc/approach.md
-[ci]: https://travis-ci.com/freezed/ocp13/builds "Liens vers l'historique des builds sur le site Travis CI"
+
+[approach]: https://github.com/freezed/ocp13/blob/v1.0/doc/approach.md
+[bilan]: https://github.com/freezed/ocp13/blob/v1.0/doc/bilan.md
 [cordee]: https://www.la-cordee.net/
 [dapy]: https://openclassrooms.com/fr/paths/68-developpeur-dapplication-python "Maîtrisez Python, le langage des startups et des scientifiques, pour réaliser vos propres applications web"
-[doc]: https://github.com/freezed/ocp13/blob/wip-doc/doc/documentation.md
 [kanban]: https://github.com/freezed/ocp13/projects/1
+[lfd]: https://raw.githubusercontent.com/freezed/ocp13/v1.0/doc/data_model/functional_model_light.png
+[ocp13]: ocp13-1664.herokuapp.com
 [p11]: https://github.com/freezed/ocp8/blob/v0.3/README.md#contexte
 [p3]: https://github.com/freezed/ocp3/#pydev-projet-3
 [p5]: https://github.com/freezed/ocp5#pydev-projet-5
-[readme]: https://github.com/freezed/ocp13/blob/master/README.md#contexte-pédagogique
+[pitch] :https://gitpitch.com/freezed/ocp13/v0.1?p=doc
+[readme]: https://github.com/freezed/ocp13/blob/v1.0/README.md#note-dintention
 [refuge]: https://refuge.la-cordee.net/messages/5733
 [serge]: https://refuge.la-cordee.net/users/2579
 [wikici]: https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue "Lien vers la page «Intégration continue» sur wikipedia"
 [wikicsv]: https://fr.wikipedia.org/wiki/Comma-separated_values "Lien vers la page «Comma-separated_values» sur Wikipedia"
 [wikidav]: https://fr.wikipedia.org/wiki/CardDAV "Lien vers la page «CardDAV» sur Wikipedia"
-[wiki]: https://fr.wikipedia.org/wiki/ "Lien vers la page «» sur wikipedia"
 [wikipython]: https://fr.wikipedia.org/wiki/Python_(langage) "Lien vers la page «Python (langage)» sur wikipedia"
 [wikisaas]: https://fr.wikipedia.org/wiki/Logiciel_en_tant_que_service "Lien vers la page «Logiciel en tant que service» sur wikipedia"
 [wikitdd]: https://fr.wikipedia.org/wiki/Test_driven_development "Lien vers la page «Test driven development» sur wikipedia"
 [wikivcf]: https://fr.wikipedia.org/wiki/VCard "Lien vers la page «VCard» sur Wikipedia"
 [wikixtrem]: https://fr.wikipedia.org/wiki/Extreme_programming "Lien vers la page «Extreme programming» sur Wikipedia"
-[lfd]: https://raw.githubusercontent.com/freezed/ocp13/master/doc/data_model/functional_model_light.png
-
-[wiki]: https://fr.wikipedia.org/wiki/ "Lien vers la page «» sur Wikipedia"
