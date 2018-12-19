@@ -2,18 +2,53 @@
 
 {% block maincontent %}
   <p>Fiche contact : <strong>{{contact.get_full_name|title}}</strong></p>
+
   <div class="grid-2-small-1 has-gutter">
+
     <div class="txtcenter"><strong>{{contact.was_created_today|yesno:"Nouveau contact,Ancien contact"}}</strong></div>
+
   {% for label, field in contact.all.items %}
     <div class="txtcenter"><strong>{{label}}</strong> : <em>{{field}}</em></div>
+
   {% endfor %}
+
   </div>
-  <div class="flex-container pam">
-    <div class="item-center">
+
+  <hr \>
+
+  <ol class="pam inbl">
+
+  {% for entry in contact_entries %}
+    <li class="pam inbl">
+        {{ entry.title|title }}
+    </li>
+
+    {% if forloop.last %}
+  </ol>
+  <p>Total : <strong>{{ forloop.counter }}</strong> entrée{{ forloop.counter|pluralize }}</p>
+
+  <hr />
+    {% endif %}
+
+    {% empty %}
+  <p><em>Pas d'entrée</em></p>
+
+  {% endfor %}
+
+  <div class="grid-3-small-1 has-gutter">
+    <div>
       <a href="{% url 'lead:delete' contact.id %}" title="Supprimer le contact «{{contact.get_full_name|title}}»">
-        <button class="btn--danger" >
-          Supprimer le contact <strong>{{contact.get_full_name|title}}</strong>
-        </button>
+        <button class="btn--danger" >Supprimer</button>
+      </a>
+    </div>
+    <div>
+      <a href="{% url 'lead:log:create' contact.id %}" title="Ajouter une entrée au contact «{{contact.get_full_name|title}}»">
+        <button class="btn--success" >Ajouter une entrée</button>
+      </a>
+    </div>
+    <div>
+      <a href="{% url 'lead:edit' contact.id %}" title=" le contact «{{contact.get_full_name|title}}»">
+        <button class="btn--primary" >Modifier</button>
       </a>
     </div>
   </div>

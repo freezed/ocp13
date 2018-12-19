@@ -8,6 +8,7 @@ from django.views.generic import DetailView, ListView
 
 from lead.forms import ContactForm
 from lead.models import Contact
+from log.models import Entry
 
 
 class ContactList(LoginRequiredMixin, ListView):
@@ -28,6 +29,13 @@ class ContactDetail(LoginRequiredMixin, DetailView):
 
     def get_queryset(self):
         return Contact.objects.filter(user=self.request.user)
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contact_entries'] = Entry.objects.filter(contact=self.kwargs['contact_id'])
+
+        return context
 
 
 class ContactCreate(LoginRequiredMixin, CreateView):
