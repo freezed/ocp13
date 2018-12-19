@@ -1,0 +1,21 @@
+{% extends "lead/contact_list.html" %}
+
+{% block maincontent %}
+  <h3>Détail de l'entrée :<br /> «<strong><em>{{ entry.title }}</em></strong>»</h3>
+
+  <p>Créée le : <em>{{ entry.date_joined }}</em></p>
+
+  {% if entry.date_edited %}
+    <p>Modifiée le : <em>{{ entry.date_edited }}</em></p>
+  {% endif %}
+
+  <p><strong><em>Description</em></strong> : {{ entry.desc }}</p>
+
+  <div class="grid-1-small-1 has-gutter">
+    <div>
+      <a href="{% url 'lead:view' contact_id %}" title="Retour au contact «{{contact.get_full_name|title}}»">
+        <button class="btn--primary">Retour au contact</button>
+      </a>
+    </div>
+  </div>
+{% endblock maincontent %}

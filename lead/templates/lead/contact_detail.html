@@ -20,7 +20,7 @@
 
   {% for entry in contact_entries %}
     <li class="pam inbl">
-        {{ entry.title|title }}
+      <a href="{% url 'lead:log:detail' contact.id entry.id %}" title="Voir l'entrée {{ entry.id }}">{{ entry.title|title }}</a>
     </li>
 
     {% if forloop.last %}

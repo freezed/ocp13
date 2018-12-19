@@ -77,3 +77,10 @@ class EntryDetail(LoginRequiredMixin, DetailView):
             id=self.kwargs['contact_id'],
             user=self.request.user.id,
         ).exists()
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contact_id'] = self.kwargs['contact_id']
+
+        return context
