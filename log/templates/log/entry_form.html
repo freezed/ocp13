@@ -4,12 +4,7 @@
   <p>
     Nouvelle entrée d'historique pour le contact :
       <strong>
-        {% for l,v in contact.items %}
-          {{ l }} -
-          {{ v }}
-        {% endfor %}
-        -
-        {{ contact }}
+        {{ contact_fields.get_full_name|title }}
       </strong>
   </p>
 

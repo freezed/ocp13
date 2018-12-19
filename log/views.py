@@ -50,6 +50,11 @@ class EntryCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
             'contact_id': self.kwargs['contact_id']
         })
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['contact_fields'] = Contact.objects.get(id=self.kwargs['contact_id'])
+
+        return context
 
 
 class EntryDetail(LoginRequiredMixin, DetailView):
