@@ -48,7 +48,7 @@
     * [x] ~`models.py` (entry)~
     * [x] ~Create~
     * [ ] finish `views` & `forms` tests
-    * [ ] Read
+    * [x] ~Detail~
     * [ ] Update
     * [ ] Delete
     * [ ] Raise tests cases :
