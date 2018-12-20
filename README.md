@@ -45,9 +45,9 @@ Bien qu'aillant chacun des activités (_très_) différentes, après une écoute
 
 * Une [note d’intention][readme] expliquant les objectifs du projet.
 * Un [bilan de votre expérience][bilan] sur ce projet.
-* [Document détaillant votre implémentation][approach] des 12 bonnes pratiques de l’[_extreme programming_][wikixtrem].
+* [Document détaillant votre implémentation][approach] des 12 bonnes pratiques de l’[extreme programming][wikixtrem].
 * Lien vers votre [tableau agile][kanban]
-* Lien vers votre [projet déployé][ocp13]
+* Lien vers votre [projet déployé][url]
 * Un [support de présentation][pitch]
 
 
@@ -57,11 +57,11 @@ Bien qu'aillant chacun des activités (_très_) différentes, après une écoute
 [dapy]: https://openclassrooms.com/fr/paths/68-developpeur-dapplication-python "Maîtrisez Python, le langage des startups et des scientifiques, pour réaliser vos propres applications web"
 [kanban]: https://github.com/freezed/ocp13/projects/1
 [lfd]: https://raw.githubusercontent.com/freezed/ocp13/v1.0/doc/data_model/functional_model_light.png
-[ocp13]: ocp13-1664.herokuapp.com
+[url]: ocp13-1664.herokuapp.com
 [p11]: https://github.com/freezed/ocp8/blob/v0.3/README.md#contexte
 [p3]: https://github.com/freezed/ocp3/#pydev-projet-3
 [p5]: https://github.com/freezed/ocp5#pydev-projet-5
-[pitch] :https://gitpitch.com/freezed/ocp13/v0.1?p=doc
+[pitch]: https://gitpitch.com/freezed/ocp13/v0.1?p=doc
 [readme]: https://github.com/freezed/ocp13/blob/v1.0/README.md#note-dintention
 [refuge]: https://refuge.la-cordee.net/messages/5733
 [serge]: https://refuge.la-cordee.net/users/2579
