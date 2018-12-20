@@ -82,4 +82,4 @@ Depuis toujours les outils me fascinent et me savoir capable de pouvoir aujourd'
 Il me tarde de pouvoir continuer sur cette route!
 
 
-[bilan]: https://github.com/freezed/ocp13/blob/v1.0/doc/bilan.md
+[bilan]: https://github.com/freezed/ocp13/blob/v0.1/doc/bilan.md

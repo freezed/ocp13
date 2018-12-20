@@ -51,18 +51,18 @@ Bien qu'aillant chacun des activités (_très_) différentes, après une écoute
 * Un [support de présentation][pitch]
 
 
-[approach]: https://github.com/freezed/ocp13/blob/v1.0/doc/approach.md
-[bilan]: https://github.com/freezed/ocp13/blob/v1.0/doc/bilan.md
+[approach]: https://github.com/freezed/ocp13/blob/v0.1/doc/approach.md
+[bilan]: https://github.com/freezed/ocp13/blob/v0.1/doc/bilan.md
 [cordee]: https://www.la-cordee.net/
 [dapy]: https://openclassrooms.com/fr/paths/68-developpeur-dapplication-python "Maîtrisez Python, le langage des startups et des scientifiques, pour réaliser vos propres applications web"
 [kanban]: https://github.com/freezed/ocp13/projects/1
-[lfd]: https://raw.githubusercontent.com/freezed/ocp13/v1.0/doc/data_model/functional_model_light.png
+[lfd]: https://raw.githubusercontent.com/freezed/ocp13/v0.1/doc/data_model/functional_model_light.png
 [url]: ocp13-1664.herokuapp.com
 [p11]: https://github.com/freezed/ocp8/blob/v0.3/README.md#contexte
 [p3]: https://github.com/freezed/ocp3/#pydev-projet-3
 [p5]: https://github.com/freezed/ocp5#pydev-projet-5
 [pitch]: https://gitpitch.com/freezed/ocp13/v0.1?p=doc
-[readme]: https://github.com/freezed/ocp13/blob/v1.0/README.md#note-dintention
+[readme]: https://github.com/freezed/ocp13/blob/v0.1/README.md#note-dintention
 [refuge]: https://refuge.la-cordee.net/messages/5733
 [serge]: https://refuge.la-cordee.net/users/2579
 [wikici]: https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue "Lien vers la page «Intégration continue» sur wikipedia"
