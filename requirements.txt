@@ -16,5 +16,5 @@ python-coveralls
 pytz==2018.7
 sentry-sdk==0.5.5
 six==1.11.0
-urllib3==1.24.1
+urllib3==1.24.2
 whitenoise==4.1.2
